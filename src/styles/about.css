@@ -1,0 +1,183 @@
+/* About Page Styles */
+
+/* Mission & Vision Cards */
+.mission-vision-grid {
+  gap: var(--space-8);
+}
+
+.mission-card,
+.vision-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.mission-card:hover,
+.vision-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-light);
+}
+
+.mission-icon,
+.vision-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-3);
+}
+
+.mission-card h3,
+.vision-card h3 {
+  font-size: 1.5rem;
+  color: var(--color-text-main);
+  margin-bottom: var(--space-3);
+}
+
+.mission-card p,
+.vision-card p {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Value Cards */
+.value-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.value-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.value-icon {
+  font-size: 2.25rem;
+  margin-bottom: var(--space-3);
+}
+
+.value-title {
+  font-size: 1.1875rem;
+  margin-bottom: var(--space-2);
+  color: var(--color-text-main);
+}
+
+.value-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Philosophy Cards */
+.philosophy-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: border-color var(--transition-fast);
+}
+
+.philosophy-card:hover {
+  border-color: var(--color-secondary-light);
+}
+
+.philosophy-title {
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+  margin-bottom: var(--space-2);
+}
+
+.philosophy-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Why Choose Us Cards */
+.why-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: transform var(--transition-fast);
+}
+
+.why-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.why-icon {
+  font-size: 2.25rem;
+  margin-bottom: var(--space-3);
+}
+
+.why-title {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-2);
+}
+
+.why-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Environment Preview Container */
+.environment-preview-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.environment-preview-content h2 {
+  font-size: 1.875rem;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.environment-preview-content p {
+  color: var(--color-text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+/* Responsive Breakpoints for About Page */
+@media (max-width: 992px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .environment-preview-box {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-card, .vision-card { padding: var(--space-6); }
+  .environment-preview-box { padding: var(--space-6); }
+}
