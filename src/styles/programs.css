@@ -242,6 +242,10 @@
 }
 
 /* Sample Daily Routine Timeline Layout */
+#daily-routine {
+  scroll-margin-top: 100px;
+}
+
 .timeline-container {
   max-width: 860px;
   margin: 0 auto;
