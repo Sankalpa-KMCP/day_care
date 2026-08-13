@@ -1,12 +1,33 @@
-/* About Page Styles */
+/* About Page Styles - Small Daycare Refactor */
+
+/* Page Hero */
+.page-hero-section {
+  padding: var(--space-12) 0 var(--space-8) 0;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: var(--color-text-main);
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.page-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
 
 /* Mission & Vision Cards */
-.mission-vision-grid {
+.story-grid {
   gap: var(--space-8);
 }
 
-.mission-card,
-.vision-card {
+.mission-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -15,34 +36,34 @@
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.mission-card:hover,
-.vision-card:hover {
+.mission-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
   border-color: var(--color-primary-light);
 }
 
-.mission-icon,
-.vision-icon {
+.mission-icon {
   font-size: 2.5rem;
   margin-bottom: var(--space-3);
 }
 
-.mission-card h3,
-.vision-card h3 {
+.mission-card h3 {
   font-size: 1.5rem;
   color: var(--color-text-main);
   margin-bottom: var(--space-3);
 }
 
-.mission-card p,
-.vision-card p {
+.mission-card p {
   font-size: 1.0625rem;
   color: var(--color-text-muted);
   line-height: 1.6;
 }
 
 /* Value Cards */
+.values-grid {
+  gap: var(--space-6);
+}
+
 .value-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -74,59 +95,13 @@
   line-height: 1.5;
 }
 
-/* Philosophy Cards */
-.philosophy-card {
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  transition: border-color var(--transition-fast);
-}
-
-.philosophy-card:hover {
-  border-color: var(--color-secondary-light);
-}
-
-.philosophy-title {
-  font-size: 1.25rem;
-  color: var(--color-text-main);
-  margin-bottom: var(--space-2);
-}
-
-.philosophy-desc {
-  font-size: 0.9375rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-}
-
-/* Why Choose Us Cards */
-.why-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  transition: transform var(--transition-fast);
-}
-
-.why-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-sm);
-}
-
-.why-icon {
-  font-size: 2.25rem;
-  margin-bottom: var(--space-3);
-}
-
-.why-title {
-  font-size: 1.125rem;
-  margin-bottom: var(--space-2);
-}
-
-.why-desc {
-  font-size: 0.9375rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
+/* Embedded 2-Person Team Grid */
+.about-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+  max-width: 860px;
+  margin: 0 auto;
 }
 
 /* Environment Preview Container */
@@ -136,7 +111,7 @@
   border-radius: var(--radius-lg);
   padding: var(--space-8);
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-8);
   align-items: center;
   box-shadow: var(--shadow-sm);
@@ -152,32 +127,47 @@
   color: var(--color-text-muted);
   font-size: 1.0625rem;
   line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.environment-preview-visual {
+  gap: var(--space-4);
 }
 
 /* Responsive Breakpoints for About Page */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
   .story-grid {
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
 
-  .mission-vision-grid {
+  .about-team-grid {
     grid-template-columns: 1fr;
     gap: var(--space-6);
-  }
-
-  .philosophy-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
   }
 
   .environment-preview-box {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    padding: var(--space-6);
+  }
+
+  .environment-preview-visual {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 768px) {
-  .mission-card, .vision-card { padding: var(--space-6); }
-  .environment-preview-box { padding: var(--space-6); }
+@media (max-width: 375px) {
+  .page-title {
+    font-size: 1.875rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
 }
