@@ -38,9 +38,9 @@ export default function ProgramDetailCard({ program, index }) {
           <Link to="/contact" className="btn btn-primary">
             Schedule a Visit
           </Link>
-          <Link to="/activities" className="btn btn-outline">
-            View Daily Activities &rarr;
-          </Link>
+          <a href="#daily-routine" className="btn btn-outline">
+            View Sample Routine &rarr;
+          </a>
         </div>
       </div>
 

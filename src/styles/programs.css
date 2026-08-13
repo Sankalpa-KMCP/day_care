@@ -1,4 +1,4 @@
-/* Programs Page Styles */
+/* Programs Page Styles - Small Daycare Refactor */
 
 .page-hero-section {
   padding: var(--space-12) 0 var(--space-8) 0;
@@ -21,6 +21,10 @@
   max-width: 720px;
   margin: 0 auto;
   line-height: 1.6;
+}
+
+.mb-8 {
+  margin-bottom: var(--space-8);
 }
 
 /* Quick Jump Navigation Bar */
@@ -200,31 +204,101 @@
   font-weight: bold;
 }
 
-/* Pillar Cards (Learning Philosophy) */
-.pillar-card {
+/* Activity Highlights Grid */
+.activity-highlights-grid {
+  gap: var(--space-6);
+}
+
+.activity-highlight-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-6);
-  transition: transform var(--transition-fast);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
 }
 
-.pillar-card:hover {
+.activity-highlight-card:hover {
   transform: translateY(-3px);
   border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
 }
 
-.pillar-icon {
+.activity-highlight-icon {
   font-size: 2.25rem;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.activity-highlight-title {
+  font-size: 1.1875rem;
+  color: var(--color-text-main);
   margin-bottom: var(--space-2);
 }
 
-.pillar-title {
-  font-size: 1.125rem;
+.activity-highlight-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Sample Daily Routine Timeline Layout */
+.timeline-container {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+}
+
+.timeline-marker {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-time {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--color-primary-light);
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
   margin-bottom: var(--space-2);
 }
 
-.pillar-desc {
+.timeline-title {
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+  margin-bottom: var(--space-2);
+}
+
+.timeline-desc {
   font-size: 0.9375rem;
   color: var(--color-text-muted);
   line-height: 1.5;
@@ -314,6 +388,10 @@
     order: 2;
   }
 
+  .activity-highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .guidance-box {
     grid-template-columns: 1fr;
     gap: var(--space-6);
@@ -326,10 +404,13 @@
   .guidance-box { padding: var(--space-6); }
   .program-detail-actions { flex-direction: column; }
   .program-detail-actions .btn { width: 100%; }
+  .timeline-item { gap: var(--space-4); }
+  .timeline-marker { width: 36px; height: 36px; font-size: 0.875rem; }
 }
 
 @media (max-width: 375px) {
   .page-title { font-size: 1.75rem; }
   .program-jump-bar { flex-direction: column; align-items: stretch; }
   .jump-link { justify-content: center; }
+  .activity-highlights-grid { grid-template-columns: 1fr; }
 }

@@ -1,37 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../data/placeholderData';
-import { programsData, programsDisclaimer } from '../data/programs';
+import {
+  programsData,
+  programsDisclaimer,
+  scheduleDisclaimer,
+  activityHighlights,
+  dailySchedule
+} from '../data/programs';
 import SectionTitle from '../components/SectionTitle';
 import ProgramDetailCard from '../components/ProgramDetailCard';
 
+/**
+ * ProgramsPage component for Little Sunshine Daycare (Small Daycare Refactor)
+ * Consolidated 3 program groups, activity highlights, and sample daily schedule.
+ */
 export default function ProgramsPage() {
-  const learningPillars = [
-    {
-      icon: '🧩',
-      title: 'Play-Based Discovery',
-      desc: 'Hands-on games, puzzles, and sensory centers that foster problem-solving and natural curiosity.'
-    },
-    {
-      icon: '🤝',
-      title: 'Social & Emotional Growth',
-      desc: 'Guided interactions building kindness, empathy, self-regulation, and collaborative group play.'
-    },
-    {
-      icon: '🎨',
-      title: 'Creative Expression',
-      desc: 'Daily exposure to painting, music, dramatic play, and storytelling to unlock imagination.'
-    },
-    {
-      icon: '🌿',
-      title: 'Physical & Outdoor Health',
-      desc: 'Supervised playground play, outdoor nature games, and gross motor coordination exercises.'
-    }
-  ];
-
   return (
     <div className="programs-page">
-      {/* 1. Page Hero / Header */}
+      {/* 1. Page Hero */}
       <section className="page-hero-section">
         <div className="container">
           <div className="page-hero-content text-center">
@@ -52,18 +39,18 @@ export default function ProgramsPage() {
           <div className="program-jump-bar mt-8">
             {programsData.map((p) => (
               <a key={p.id} href={`#${p.id}`} className="jump-link">
-                <span className="jump-icon">{p.icon}</span> {p.category}
+                <span className="jump-icon" aria-hidden="true">{p.icon}</span> {p.category}
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 2. Detailed Program List */}
+      {/* 2. Detailed Program List (3 Groups) */}
       <section className="section-padding">
         <div className="container">
           <SectionTitle
-            badge="Comprehensive Programs"
+            badge="Our Programs"
             title="Tailored Environments for Every Stage"
             subtitle="Explore how each program adapts to your child’s developmental milestones."
           />
@@ -76,28 +63,57 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* 3. Learning Approach / What Children Experience */}
+      {/* 3. Learning Through Play (Integrated Activities Highlights) */}
       <section className="section-padding bg-surface">
         <div className="container">
           <SectionTitle
-            badge="Our Philosophy"
-            title="How Children Experience Learning Every Day"
-            subtitle="Our everyday routines combine structured group activities with open child-directed play."
+            badge="Learning Through Play"
+            title="Daily Enrichment & Activity Highlights"
+            subtitle="Hands-on experiences woven into our everyday routines to foster creativity, motor skills, and curiosity."
           />
-          <div className="grid grid-4 pillars-grid">
-            {learningPillars.map((pillar, idx) => (
-              <div key={idx} className="pillar-card">
-                <div className="pillar-icon" aria-hidden="true">{pillar.icon}</div>
-                <h3 className="pillar-title">{pillar.title}</h3>
-                <p className="pillar-desc">{pillar.desc}</p>
+          <div className="grid grid-3 activity-highlights-grid">
+            {activityHighlights.map((act) => (
+              <div key={act.id} className="activity-highlight-card">
+                <span className="activity-highlight-icon" aria-hidden="true">{act.icon}</span>
+                <h3 className="activity-highlight-title">{act.title}</h3>
+                <p className="activity-highlight-desc">{act.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Program Selection Guidance */}
-      <section className="section-padding">
+      {/* 4. Sample Daily Routine Timeline */}
+      <section className="section-padding" id="daily-routine">
+        <div className="container">
+          <SectionTitle
+            badge="Daily Routine"
+            title="Sample Daycare Schedule"
+            subtitle="A predictable daily flow balancing active play, quiet reading, outdoor recess, and rest."
+          />
+          
+          <div className="demo-notice-banner mb-8" role="note">
+            <span className="notice-icon">ℹ️</span>
+            <span>{scheduleDisclaimer}</span>
+          </div>
+
+          <div className="timeline-container">
+            {dailySchedule.map((item, idx) => (
+              <div key={idx} className="timeline-item">
+                <div className="timeline-marker" aria-hidden="true">{idx + 1}</div>
+                <div className="timeline-content">
+                  <span className="timeline-time">{item.time}</span>
+                  <h3 className="timeline-title">{item.title}</h3>
+                  <p className="timeline-desc">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Program Selection & Room Placement Guidance */}
+      <section className="section-padding bg-surface">
         <div className="container">
           <div className="guidance-box">
             <div className="guidance-content">
@@ -111,7 +127,7 @@ export default function ProgramsPage() {
               </p>
               <ul className="guidance-list">
                 <li><span>1</span> <strong>Schedule a Tour:</strong> Visit our facility and meet our teaching team.</li>
-                <li><span>2</span> <strong>Share Your Routine:</strong> Discuss nap times, dietary needs, and learning goals.</li>
+                <li><span>2</span> <strong>Share Your Routine:</strong> Discuss nap times, dietary preferences, and learning goals.</li>
                 <li><span>3</span> <strong>Gentle Transition:</strong> Support your child with orientation visits before full start.</li>
               </ul>
             </div>
@@ -126,7 +142,7 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* 5. Final CTA */}
+      {/* 6. Final CTA */}
       <section className="section-padding cta-section">
         <div className="container text-center">
           <div className="cta-box">
@@ -139,8 +155,8 @@ export default function ProgramsPage() {
               <Link to="/contact" className="btn btn-primary btn-lg">
                 Schedule a Visit Now
               </Link>
-              <Link to="/activities" className="btn btn-outline-white btn-lg">
-                Explore Daily Activities &rarr;
+              <Link to="/about" className="btn btn-outline-white btn-lg">
+                About Our Daycare &rarr;
               </Link>
             </div>
           </div>
