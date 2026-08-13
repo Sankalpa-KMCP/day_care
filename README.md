@@ -1,16 +1,28 @@
-# React + Vite
+# Little Sunshine Daycare
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A warm, personal, and professional frontend website for a local daycare center. Built as a compact 4-page application focusing on clear information hierarchy, responsive design, and accessible early childhood program presentation.
 
-Currently, two official plugins are available:
+## Tech Stack
+- **Framework:** React 19
+- **Build Tool / Bundler:** Vite
+- **Routing:** React Router v7
+- **Styling:** Vanilla CSS (8px spacing grid, CSS custom properties, responsive breakpoints)
+- **Code Quality / Linter:** Oxlint
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Active Routes
+- `/` — **Home:** Hero banner, trust pillars, 3-program preview, environment highlights, visit CTA.
+- `/about` — **About:** Center story & mission, 4 core values, 2-person care team, environment preview.
+- `/programs` — **Programs:** 3 age-tailored program groups, integrated activity highlights, sample daily routine timeline, room placement guidance.
+- `/contact` — **Contact:** Facility contact details, operating hours, frontend-only visit/inquiry form, 5 Parent FAQs accordion.
+- `/*` — **Custom 404:** Accessible page-not-found screen with return to homepage action.
 
-## React Compiler
+## Setup & CLI Commands
+- **Install Dependencies:** `npm install`
+- **Development Server:** `npm run dev`
+- **Production Build:** `npm run build`
+- **Lint Codebase:** `npm run lint`
+- **Preview Production Build:** `npm run preview`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Prototype & Demonstration Limitations
+- **Frontend-Only Form:** Form submissions on `/contact` operate in frontend demonstration mode with client-side validation and visual confirmation. No network request, database storage, localStorage persistence, or email transmission takes place.
+- **Centralized Data Placeholders:** Business details, contact info, staff profiles (Elena Rostova & Marcus Vance), program age groups, and daily schedules are centralized in `src/data/` for easy replacement with live client content.
