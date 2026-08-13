@@ -5,6 +5,7 @@
 @import './about.css';
 @import './activities.css';
 @import './team.css';
+@import './contact.css';
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
 *, *::before, *::after {
