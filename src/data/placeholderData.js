@@ -1,5 +1,5 @@
 /**
- * Centralized placeholder business data for Daycare Application
+ * Centralized placeholder business data and navigation configuration for Daycare Application
  */
 export const siteConfig = {
   name: 'Little Sunshine Daycare',
@@ -9,3 +9,14 @@ export const siteConfig = {
   address: '123 Learning Lane, Sunshine City, SC 12345',
   hours: 'Monday - Friday: 7:00 AM - 6:00 PM',
 };
+
+export const navLinks = [
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Programs', path: '/programs' },
+  { label: 'Activities', path: '/activities' },
+  { label: 'Team', path: '/team' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'Parent Info', path: '/parents' },
+  { label: 'Contact', path: '/contact' },
+];
