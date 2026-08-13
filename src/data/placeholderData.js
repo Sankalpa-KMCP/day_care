@@ -14,9 +14,6 @@ export const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
   { label: 'Programs', path: '/programs' },
-  { label: 'Activities', path: '/activities' },
-  { label: 'Team', path: '/team' },
-  { label: 'Gallery', path: '/gallery' },
-  { label: 'Parent Info', path: '/parents' },
   { label: 'Contact', path: '/contact' },
 ];
+
