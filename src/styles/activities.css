@@ -1,0 +1,282 @@
+/* Activities Page Styles */
+
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-btn:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-border-hover);
+}
+
+.filter-btn.is-active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.filter-btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Activity Detail Cards Grid */
+.activity-detail-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.activity-detail-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-md);
+}
+
+.activity-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.activity-detail-icon {
+  font-size: 2.25rem;
+}
+
+.activity-category-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-secondary-hover);
+  background-color: var(--color-secondary-light);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.activity-detail-title {
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+  margin-bottom: var(--space-2);
+}
+
+.activity-detail-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-4);
+}
+
+.activity-focus-box {
+  margin-top: auto;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.focus-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.focus-text {
+  font-size: 0.875rem;
+  color: var(--color-text-main);
+}
+
+/* Sample Daily Schedule Timeline */
+.timeline-container {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: flex;
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+}
+
+.timeline-marker {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-time {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: var(--color-primary-light);
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-2);
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  color: var(--color-text-main);
+  margin-bottom: var(--space-2);
+}
+
+.timeline-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Daily Flow & Parent Tip Cards */
+.flow-card, .tip-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: transform var(--transition-fast);
+}
+
+.flow-card:hover, .tip-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+.flow-icon, .tip-icon {
+  font-size: 2.25rem;
+  margin-bottom: var(--space-3);
+}
+
+.flow-title, .tip-title {
+  font-size: 1.125rem;
+  margin-bottom: var(--space-2);
+}
+
+.flow-desc, .tip-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Activity Visual Container */
+.activity-visual-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.activity-visual-content h2 {
+  font-size: 1.875rem;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.activity-visual-content p {
+  color: var(--color-text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+/* Screen reader only utility class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive Styles for Activities Page */
+@media (max-width: 992px) {
+  .activity-visual-box {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-item {
+    gap: var(--space-4);
+  }
+
+  .timeline-marker {
+    width: 36px;
+    height: 36px;
+    font-size: 0.875rem;
+  }
+
+  .activity-visual-box {
+    padding: var(--space-6);
+  }
+}
+
+@media (max-width: 375px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-btn {
+    justify-content: center;
+  }
+}

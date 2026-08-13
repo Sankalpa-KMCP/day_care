@@ -1,11 +1,23 @@
 /**
  * Centralized activities and sample daily schedule data for Daycare Application
+ * NOTE: Activity categories and daily schedule entries are prototype demonstration data.
  */
+export const activitiesDisclaimer = 'Note: The activities and daily routine timeline below represent a sample demonstration schedule. Actual daily timings and center activities are adapted to weather and room age groups.';
+
+export const activityCategories = [
+  { id: 'all', label: 'All Activities' },
+  { id: 'Creative Expression', label: 'Creative' },
+  { id: 'Language Development', label: 'Literacy & Speech' },
+  { id: 'Cognitive Skills', label: 'Math & Logic' },
+  { id: 'Gross Motor Skills', label: 'Outdoor & Motor' }
+];
+
 export const activitiesData = [
   {
     id: 'arts-crafts',
     title: 'Arts & Crafts',
     category: 'Creative Expression',
+    learningFocus: 'Fine motor precision, color exploration, and creative confidence.',
     description: 'Exploring colors, textures, finger painting, and collage work to foster fine motor skills and creative expression.',
     icon: '🎨'
   },
@@ -13,13 +25,15 @@ export const activitiesData = [
     id: 'story-time',
     title: 'Storytime & Literacy',
     category: 'Language Development',
+    learningFocus: 'Auditory processing, vocabulary expansion, and narrative listening.',
     description: 'Interactive group reading sessions that build listening comprehension, vocabulary, and a love for reading.',
     icon: '📚'
   },
   {
     id: 'music-movement',
     title: 'Music & Movement',
-    category: 'Physical & Creative',
+    category: 'Creative Expression',
+    learningFocus: 'Rhythmic coordination, balance, and spatial awareness.',
     description: 'Rhythm instruments, dancing, and singing games to enhance coordination, auditory skills, and joy.',
     icon: '🎵'
   },
@@ -27,6 +41,7 @@ export const activitiesData = [
     id: 'outdoor-play',
     title: 'Outdoor Exploration',
     category: 'Gross Motor Skills',
+    learningFocus: 'Physical strength, active exercise, and cooperative group play.',
     description: 'Supervised playground play, outdoor games, and nature walks to promote active physical health and fresh air.',
     icon: '🌳'
   },
@@ -34,13 +49,15 @@ export const activitiesData = [
     id: 'early-math',
     title: 'Early Math & Puzzles',
     category: 'Cognitive Skills',
+    learningFocus: 'Spatial reasoning, pattern recognition, and problem-solving.',
     description: 'Pattern matching, shape sorting, block building, and simple counting games that build logical thinking.',
     icon: '🧩'
   },
   {
     id: 'sensory-play',
     title: 'Sensory Discovery',
-    category: 'Exploration',
+    category: 'Cognitive Skills',
+    learningFocus: 'Tactile exploration, scientific curiosity, and focus.',
     description: 'Water tables, sand exploration, and tactile materials that encourage scientific curiosity and sensory integration.',
     icon: '✨'
   }
@@ -100,5 +117,23 @@ export const dailySchedule = [
     time: '5:00 PM - 6:00 PM',
     title: 'Quiet Centers & Evening Departure',
     description: 'Table puzzles, drawing, parent updates, and pickup transition.'
+  }
+];
+
+export const parentActivityTips = [
+  {
+    icon: '👟',
+    title: 'Comfortable Play Clothing',
+    description: 'Dress children in comfortable, machine-washable clothing and closed-toe shoes suitable for art painting and playground play.'
+  },
+  {
+    icon: '☀️',
+    title: 'Seasonal Outdoor Items',
+    description: 'Provide appropriate outdoor items for bright sunny days or cooler morning outdoor play periods.'
+  },
+  {
+    icon: '🗣️',
+    title: 'Sharing Daily Highlights',
+    description: 'Ask your child about their favorite story or art project during pickup to reinforce learning confidence.'
   }
 ];
