@@ -142,40 +142,49 @@ export default function HomePage() {
 
             <div className="hero-trust-row">
               <div className="hero-trust-item">
-                <svg className="trust-check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+                <div className="trust-check-bubble" aria-hidden="true">
+                  <svg className="trust-check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
                 <span>State Licensed & Certified</span>
               </div>
               <div className="hero-trust-item">
-                <svg className="trust-check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+                <div className="trust-check-bubble" aria-hidden="true">
+                  <svg className="trust-check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
                 <span>Low 1:4 Care Ratio</span>
               </div>
               <div className="hero-trust-item">
-                <svg className="trust-check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+                <div className="trust-check-bubble" aria-hidden="true">
+                  <svg className="trust-check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
                 <span>4.9★ Parent Rating</span>
               </div>
             </div>
           </div>
 
           <div className="hero-visual">
-            <div className="hero-image-frame">
-              <img
-                src="/images/hero_daycare_play.jpg"
-                alt="Children playing with wooden blocks in a sunlit modern daycare room"
-                className="hero-main-img"
-              />
-              <div className="hero-floating-card">
-                <svg className="floating-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                </svg>
-                <div className="floating-text">
-                  <strong>98% Parent Satisfaction</strong>
-                  <span>Trusted by 150+ Local Families</span>
+            <div className="hero-image-wrapper">
+              <div className="hero-image-backdrop" aria-hidden="true"></div>
+              <div className="hero-image-frame">
+                <img
+                  src="/images/hero_daycare_play.jpg"
+                  alt="Children playing with wooden blocks in a sunlit modern daycare room"
+                  className="hero-main-img"
+                />
+                <div className="hero-floating-card">
+                  <svg className="floating-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <div className="floating-text">
+                    <strong>98% Parent Satisfaction</strong>
+                    <span>Trusted by 150+ Local Families</span>
+                  </div>
                 </div>
               </div>
             </div>

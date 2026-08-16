@@ -18,25 +18,29 @@ export const coreValues = [
     id: 'val-care',
     title: 'Attentive, Nurturing Care',
     description: 'Prioritizing emotional security, physical comfort, and gentle personalized care for every child.',
-    iconSvg: 'heart'
+    iconSvg: 'heart',
+    variant: 'terracotta'
   },
   {
     id: 'val-play',
     title: 'Play-Based Discovery',
     description: 'Encouraging hands-on tactile exploration, storytelling, music, and art through self-directed wonder.',
-    iconSvg: 'sparkles'
+    iconSvg: 'sparkles',
+    variant: 'amber'
   },
   {
     id: 'val-respect',
     title: 'Kindness & Community',
     description: 'Fostering empathy, positive peer collaboration, sharing, and emotional resilience from the earliest age.',
-    iconSvg: 'users'
+    iconSvg: 'users',
+    variant: 'sage'
   },
   {
     id: 'val-family',
     title: 'Parent Partnership',
     description: 'Daily digital logs, photo check-ins, and open communication to ensure complete peace of mind.',
-    iconSvg: 'message'
+    iconSvg: 'message',
+    variant: 'sky'
   }
 ];
 
@@ -44,21 +48,25 @@ export const safetyStandards = [
   {
     title: 'Secure Access & Entry',
     desc: 'Keypad-secured front entrance with visitor photo ID check-in and perimeter surveillance.',
-    icon: 'shield'
+    icon: 'shield',
+    chip: 'Keypad & CCTV'
   },
   {
     title: 'CPR & First-Aid Certified',
     desc: '100% of teachers and staff maintain active pediatric First Aid, CPR, and AED certifications.',
-    icon: 'activity'
+    icon: 'activity',
+    chip: '100% Staff Certified'
   },
   {
     title: 'Hospital-Grade Sanitization',
     desc: 'Eco-friendly, non-toxic sanitization of toys, cots, and learning surfaces throughout the day.',
-    icon: 'sparkles'
+    icon: 'sparkles',
+    chip: 'Eco-Friendly Daily'
   },
   {
     title: 'Fresh Organic Nutrition',
     desc: 'Seasonal organic breakfasts, hot lunches, and wholesome afternoon snacks prepared daily on-site.',
-    icon: 'sun'
+    icon: 'sun',
+    chip: 'On-Site Chef Prepared'
   }
 ];

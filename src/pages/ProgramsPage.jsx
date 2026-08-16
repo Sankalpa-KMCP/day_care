@@ -154,11 +154,29 @@ export default function ProgramsPage() {
               <p className="section-text">
                 Every child develops at their own unique pace. During your tour and enrollment consultation, our early education director reviews your child's home routines, dietary rhythms, and developmental stage to recommend the ideal placement.
               </p>
-              <ul className="guidance-list">
-                <li><span className="guidance-num">1</span> <div><strong>Schedule an In-Person Tour:</strong> Tour classrooms, observe routines, and meet teachers.</div></li>
-                <li><span className="guidance-num">2</span> <div><strong>Share Your Child's Rhythm:</strong> Discuss feeding schedules, nap habits, and special interests.</div></li>
-                <li><span className="guidance-num">3</span> <div><strong>Gentle Gradual Transition:</strong> We offer flexible trial drop-in mornings to build security.</div></li>
-              </ul>
+              <div className="guidance-stepper">
+                <div className="guidance-step-item">
+                  <div className="guidance-step-num" aria-hidden="true">1</div>
+                  <div className="guidance-step-body">
+                    <strong>Schedule an In-Person Tour</strong>
+                    <span>Tour our classrooms, observe daily rhythm and teacher interactions, and see the environment in person.</span>
+                  </div>
+                </div>
+                <div className="guidance-step-item">
+                  <div className="guidance-step-num" aria-hidden="true">2</div>
+                  <div className="guidance-step-body">
+                    <strong>Share Your Child's Unique Rhythm</strong>
+                    <span>Discuss feeding schedules, nap comfort habits, developmental milestones, and special interests.</span>
+                  </div>
+                </div>
+                <div className="guidance-step-item">
+                  <div className="guidance-step-num" aria-hidden="true">3</div>
+                  <div className="guidance-step-body">
+                    <strong>Gentle Gradual Transition</strong>
+                    <span>We offer flexible trial drop-in mornings to build emotional security and comfort before full start.</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="guidance-cta-card">
               <h3>Have Questions About Placement?</h3>

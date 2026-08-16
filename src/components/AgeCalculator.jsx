@@ -25,21 +25,25 @@ export default function AgeCalculator() {
         </p>
       </div>
 
-      <div className="age-options-grid">
+      <div className="age-options-grid" role="group" aria-label="Select age range">
         {ageOptions.map((option) => (
           <button
             key={option.value}
             type="button"
             className={`age-option-btn ${selectedAge === option.value ? 'is-selected' : ''}`}
             onClick={() => setSelectedAge(option.value)}
+            aria-pressed={selectedAge === option.value}
           >
             <span className="age-option-label">{option.label}</span>
             <span className="age-option-cat">{option.category} Stage</span>
+            {selectedAge === option.value && (
+              <span className="age-option-arrow" aria-hidden="true">▼</span>
+            )}
           </button>
         ))}
       </div>
 
-      <div className="matched-program-card">
+      <div key={activeOption.value} className="matched-program-card animate-fade-in">
         <div className="matched-program-header">
           <div className="matched-program-badge">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--color-primary)' }}>

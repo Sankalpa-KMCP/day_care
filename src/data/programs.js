@@ -116,33 +116,33 @@ export const activityHighlights = [
 
 export const ageSchedules = {
   'infants': [
-    { time: '7:00 AM - 8:30 AM', title: 'Gentle Arrival & Individual Feedings', desc: 'Flexible parent handoff, cozy infant greeting, individualized morning feeding or nap.' },
-    { time: '8:30 AM - 9:30 AM', title: 'Sensory & Tummy Time Exploration', desc: 'Soft texture play, soothing musical rhymes, guided tummy-time and mirror exploration.' },
-    { time: '9:30 AM - 10:30 AM', title: 'Morning Nap / Stroller Fresh Air', desc: 'Quiet crib resting or peaceful outdoor buggy stroll through our secure garden.' },
-    { time: '10:30 AM - 11:30 AM', title: 'Mid-Morning Feeding & Motor Play', desc: 'Organic puree or bottle feeding, sensory water pads, gentle rattle reach play.' },
-    { time: '11:30 AM - 1:30 PM', title: 'Afternoon Rest & Soft Music', desc: 'Dimly lit rest room with white noise and gentle caregiver soothing.' },
-    { time: '1:30 PM - 3:00 PM', title: 'Tactile Play & Finger Painting', desc: 'Non-toxic edible finger paints, soft block building, and language vocalization games.' },
-    { time: '3:00 PM - 6:00 PM', title: 'Afternoon Feeding & Family Reunion', desc: 'Afternoon bottle/snack, quiet cuddles, daily app log finalization, and parent pickup.' }
+    { time: '7:00 AM - 8:30 AM', icon: '🌅', title: 'Gentle Arrival & Individual Feedings', desc: 'Flexible parent handoff, cozy infant greeting, individualized morning feeding or nap.' },
+    { time: '8:30 AM - 9:30 AM', icon: '✨', title: 'Sensory & Tummy Time Exploration', desc: 'Soft texture play, soothing musical rhymes, guided tummy-time and mirror exploration.' },
+    { time: '9:30 AM - 10:30 AM', icon: '🌿', title: 'Morning Nap / Stroller Fresh Air', desc: 'Quiet crib resting or peaceful outdoor buggy stroll through our secure garden.' },
+    { time: '10:30 AM - 11:30 AM', icon: '🍼', title: 'Mid-Morning Feeding & Motor Play', desc: 'Organic puree or bottle feeding, sensory water pads, gentle rattle reach play.' },
+    { time: '11:30 AM - 1:30 PM', icon: '💤', title: 'Afternoon Rest & Soft Music', desc: 'Dimly lit rest room with white noise and gentle caregiver soothing.' },
+    { time: '1:30 PM - 3:00 PM', icon: '🎨', title: 'Tactile Play & Finger Painting', desc: 'Non-toxic edible finger paints, soft block building, and language vocalization games.' },
+    { time: '3:00 PM - 6:00 PM', icon: '🏡', title: 'Afternoon Feeding & Family Reunion', desc: 'Afternoon bottle/snack, quiet cuddles, daily app log finalization, and parent pickup.' }
   ],
   'toddlers': [
-    { time: '7:00 AM - 8:30 AM', title: 'Arrival & Free Choice Play', desc: 'Gentle check-in, puzzle tables, and comfortable transition into the classroom.' },
-    { time: '8:30 AM - 9:00 AM', title: 'Organic Snack & Circle Time', desc: 'Morning songs, weather chart, simple stories, and group hello songs.' },
-    { time: '9:00 AM - 10:15 AM', title: 'Creative Discovery Centers', desc: 'Rotations between art studio, sensory sand tables, and block building.' },
-    { time: '10:15 AM - 11:30 AM', title: 'Outdoor Nature Playground', desc: 'Sandbox exploration, tricycle riding, running, and garden exploration.' },
-    { time: '11:30 AM - 12:30 PM', title: 'Chef-Prepared Lunch & Story', desc: 'Nutritious family-style lunch, table manners, and calming storybook.' },
-    { time: '12:30 PM - 2:30 PM', title: 'Rejuvenating Nap & Rest Time', desc: 'Cozy cots with personalized sleep items in a quiet, darkened room.' },
-    { time: '2:30 PM - 3:30 PM', title: 'Afternoon Fruit Snack & Music', desc: 'Fresh fruit snack followed by movement songs and rhythm instruments.' },
-    { time: '3:30 PM - 6:00 PM', title: 'Outdoor Recess & Parent Pickup', desc: 'Afternoon playground playtime, story time, and daily recap with parents.' }
+    { time: '7:00 AM - 8:30 AM', icon: '🌅', title: 'Arrival & Free Choice Play', desc: 'Gentle check-in, puzzle tables, and comfortable transition into the classroom.' },
+    { time: '8:30 AM - 9:00 AM', icon: '🍎', title: 'Organic Snack & Circle Time', desc: 'Morning songs, weather chart, simple stories, and group hello songs.' },
+    { time: '9:00 AM - 10:15 AM', icon: '🎨', title: 'Creative Discovery Centers', desc: 'Rotations between art studio, sensory sand tables, and block building.' },
+    { time: '10:15 AM - 11:30 AM', icon: '🌳', title: 'Outdoor Nature Playground', desc: 'Sandbox exploration, tricycle riding, running, and garden exploration.' },
+    { time: '11:30 AM - 12:30 PM', icon: '🍲', title: 'Chef-Prepared Lunch & Story', desc: 'Nutritious family-style lunch, table manners, and calming storybook.' },
+    { time: '12:30 PM - 2:30 PM', icon: '💤', title: 'Rejuvenating Nap & Rest Time', desc: 'Cozy cots with personalized sleep items in a quiet, darkened room.' },
+    { time: '2:30 PM - 3:30 PM', icon: '🎵', title: 'Afternoon Fruit Snack & Music', desc: 'Fresh fruit snack followed by movement songs and rhythm instruments.' },
+    { time: '3:30 PM - 6:00 PM', icon: '🏡', title: 'Outdoor Recess & Parent Pickup', desc: 'Afternoon playground playtime, story time, and daily recap with parents.' }
   ],
   'preschool': [
-    { time: '7:00 AM - 8:30 AM', title: 'Arrival & Morning Journal/Puzzles', desc: 'Independent activity stations, drawing, puzzle solving, and sign-in.' },
-    { time: '8:30 AM - 9:15 AM', title: 'Morning Meeting & Phonics Circle', desc: 'Calendar, phonetic sounds, letter of the week, and interactive story.' },
-    { time: '9:15 AM - 10:30 AM', title: 'STEM & Guided Literacy Stations', desc: 'Math manipulatives, emergent writing practice, and science observations.' },
-    { time: '10:30 AM - 11:45 AM', title: 'Outdoor Gross-Motor Exploration', desc: 'Team field games, climbing structures, nature specimen collection.' },
-    { time: '11:45 AM - 12:45 PM', title: 'Healthy Lunch & Social Dining', desc: 'Balanced warm lunch, table cleanup skills, and conversational sharing.' },
-    { time: '12:45 PM - 2:15 PM', title: 'Quiet Rest & Independent Reading', desc: 'Rest time with audiobooks or quiet chapter book nooks.' },
-    { time: '2:15 PM - 3:30 PM', title: 'Creative Arts & Music Lab', desc: 'Watercolor painting, dramatic theater play, rhythm and ensemble music.' },
-    { time: '3:30 PM - 6:00 PM', title: 'Enrichment Clubs & Family Handoff', desc: 'Outdoor garden clubs, free play centers, parent conversation and pickup.' }
+    { time: '7:00 AM - 8:30 AM', icon: '🌅', title: 'Arrival & Morning Journal/Puzzles', desc: 'Independent activity stations, drawing, puzzle solving, and sign-in.' },
+    { time: '8:30 AM - 9:15 AM', icon: '📖', title: 'Morning Meeting & Phonics Circle', desc: 'Calendar, phonetic sounds, letter of the week, and interactive story.' },
+    { time: '9:15 AM - 10:30 AM', icon: '🔬', title: 'STEM & Guided Literacy Stations', desc: 'Math manipulatives, emergent writing practice, and science observations.' },
+    { time: '10:30 AM - 11:45 AM', icon: '⚽', title: 'Outdoor Gross-Motor Exploration', desc: 'Team field games, climbing structures, nature specimen collection.' },
+    { time: '11:45 AM - 12:45 PM', icon: '🍲', title: 'Healthy Lunch & Social Dining', desc: 'Balanced warm lunch, table cleanup skills, and conversational sharing.' },
+    { time: '12:45 PM - 2:15 PM', icon: '💤', title: 'Quiet Rest & Independent Reading', desc: 'Rest time with audiobooks or quiet chapter book nooks.' },
+    { time: '2:15 PM - 3:30 PM', icon: '🎭', title: 'Creative Arts & Music Lab', desc: 'Watercolor painting, dramatic theater play, rhythm and ensemble music.' },
+    { time: '3:30 PM - 6:00 PM', icon: '🏡', title: 'Enrichment Clubs & Family Handoff', desc: 'Outdoor garden clubs, free play centers, parent conversation and pickup.' }
   ]
 };
 

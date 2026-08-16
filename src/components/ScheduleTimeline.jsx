@@ -39,7 +39,7 @@ export default function ScheduleTimeline() {
       </div>
 
       {/* Timeline Flow */}
-      <div className="timeline-card">
+      <div key={activeGroup} className="timeline-card animate-fade-in">
         <div className="timeline-items-flow">
           {currentSchedule.map((slot, index) => (
             <div key={index} className="timeline-item">
@@ -51,7 +51,10 @@ export default function ScheduleTimeline() {
                 {index < currentSchedule.length - 1 && <div className="timeline-line"></div>}
               </div>
               <div className="timeline-content-col">
-                <h3 className="timeline-slot-title">{slot.title}</h3>
+                <h3 className="timeline-slot-title">
+                  {slot.icon && <span className="timeline-slot-emoji" aria-hidden="true">{slot.icon}</span>}
+                  <span>{slot.title}</span>
+                </h3>
                 <p className="timeline-slot-desc">{slot.desc}</p>
               </div>
             </div>

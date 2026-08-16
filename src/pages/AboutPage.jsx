@@ -130,7 +130,7 @@ export default function AboutPage() {
           />
           <div className="grid grid-4 values-grid">
             {coreValues.map((value) => (
-              <div key={value.id} className="value-card">
+              <div key={value.id} className={`value-card val-${value.variant || 'terracotta'}`}>
                 <div className="value-icon-box" aria-hidden="true">
                   {getValIcon(value.iconSvg)}
                 </div>
@@ -157,8 +157,11 @@ export default function AboutPage() {
                 <div className="safety-icon-box" aria-hidden="true">
                   {getSafetyIcon(item.icon)}
                 </div>
-                <div>
-                  <h4>{item.title}</h4>
+                <div className="safety-content">
+                  <div className="safety-header-row">
+                    <h4>{item.title}</h4>
+                    {item.chip && <span className="safety-chip">{item.chip}</span>}
+                  </div>
                   <p>{item.desc}</p>
                 </div>
               </div>

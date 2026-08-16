@@ -393,7 +393,7 @@ export default function ContactPage() {
             {faqsData.map((faq) => {
               const isOpen = openFaqId === faq.id;
               return (
-                <div key={faq.id} className="faq-accordion-item">
+                <div key={faq.id} className={`faq-accordion-item ${isOpen ? 'is-open' : ''}`}>
                   <button
                     type="button"
                     className={`faq-accordion-header ${isOpen ? 'is-open' : ''}`}
