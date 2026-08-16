@@ -109,7 +109,7 @@ export default function HomePage() {
           <div className="hero-content">
             <span className="hero-badge">
               <span className="hero-badge-dot" aria-hidden="true"></span>
-              Small-Group Childcare in Maplewood
+              Thoughtful Early Childhood Care
             </span>
             <h1 className="hero-title">
               A calm, nurturing early learning home for your child
@@ -129,15 +129,15 @@ export default function HomePage() {
             <div className="hero-trust-row">
               <div className="hero-trust-item">
                 <span className="hero-trust-check" aria-hidden="true">✓</span>
-                <span>State Licensed & Certified</span>
+                <span>Attentive Small-Group Care</span>
               </div>
               <div className="hero-trust-item">
                 <span className="hero-trust-check" aria-hidden="true">✓</span>
-                <span>1:4 Low Care Ratio</span>
+                <span>Play-Based Learning</span>
               </div>
               <div className="hero-trust-item">
                 <span className="hero-trust-check" aria-hidden="true">✓</span>
-                <span>Organic Fresh Daily Meals</span>
+                <span>Thoughtful Daily Routines</span>
               </div>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function HomePage() {
             <div className="hero-image-frame">
               <img
                 src="/images/hero_daycare_play.jpg"
-                alt="Children playing with natural wooden blocks in our sunlit Maplewood classroom"
+                alt="Children playing with natural wooden blocks in a sunlit classroom"
                 className="hero-main-img"
               />
             </div>
