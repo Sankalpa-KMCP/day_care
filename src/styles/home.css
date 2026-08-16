@@ -726,16 +726,12 @@
 
 .cta-badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  padding: 6px 16px;
-  border-radius: var(--radius-full);
+  color: #fef3c7;
   font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: var(--space-4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
 }
 
 .cta-title {

@@ -43,11 +43,9 @@ export default function Navbar() {
       {/* Top Announcement Bar */}
       <div className="top-announcement-bar">
         <div className="container announcement-container">
-          <span className="announcement-pill">
-            <span className="announcement-pulse-dot" aria-hidden="true"></span>
-            Now Enrolling
-          </span>
-          <span className="announcement-text">Fall 2026 Admissions Open • Small Class Sizes & Attentive Care</span>
+          <span className="announcement-label">Now Enrolling</span>
+          <span className="announcement-divider" aria-hidden="true">•</span>
+          <span className="announcement-text">Fall Admissions Open • Small Class Sizes & Attentive Care</span>
           <Link to="/contact" className="announcement-link">Book a Tour &rarr;</Link>
         </div>
       </div>

@@ -126,40 +126,39 @@ img {
 .mt-8 { margin-top: var(--space-8); }
 .mt-10 { margin-top: var(--space-10); }
 
-/* Badges & Eyebrows */
-.section-badge,
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
+/* Editorial Section Eyebrows & Labels */
+.section-badge {
+  display: inline-block;
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: var(--color-primary-light);
   color: var(--color-primary);
-  border: 1px solid rgba(24, 78, 69, 0.12);
-  margin-bottom: var(--space-3);
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: var(--space-2);
 }
 
+.section-badge.badge-terracotta,
 .badge-terracotta {
-  background: var(--color-accent-light);
   color: var(--color-accent);
-  border-color: rgba(217, 107, 67, 0.18);
+  background: transparent;
+  border: none;
 }
 
+.section-badge.badge-amber,
 .badge-amber {
-  background: var(--color-secondary-light);
   color: #b45309;
-  border-color: rgba(229, 169, 60, 0.25);
+  background: transparent;
+  border: none;
 }
 
+.section-badge.badge-sage,
 .badge-sage {
-  background: var(--color-sage-light);
   color: var(--color-sage);
-  border-color: rgba(91, 130, 115, 0.2);
+  background: transparent;
+  border: none;
 }
 
 /* Section Header Component Style */
@@ -310,17 +309,6 @@ img {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(217, 107, 67, 0.4);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 6px rgba(217, 107, 67, 0);
   }
 }
 
