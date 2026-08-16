@@ -1,46 +1,64 @@
 /**
- * Centralized About page data module for Daycare Application
- * NOTE: Fictional/demo presentation data for prototype purposes.
- * Small Daycare Refactor: Compact story, mission, and 4 core values.
+ * About Page Data & Philosophy for Little Sunshine Daycare
  */
 
-export const aboutDisclaimer = 'Note: Center story, mission, and staff details are presentation placeholders designed for demonstration purposes.';
-
 export const aboutStory = {
-  title: 'Nurturing Every Child’s Early Journey',
-  paragraph1: 'At Little Sunshine Daycare, we believe that early childhood is a season of curiosity, discovery, and growth. Designed as a warm, welcoming home-away-from-home, our small center ensures that every child receives attentive care, encouragement, and room to explore.',
-  paragraph2: 'Our daily routines blend guided early learning with creative play, helping young learners develop social confidence, friendship, and a love for discovery in a safe, nurturing setting.'
+  title: 'Nurturing Every Child’s Early Journey with Heart and Excellence',
+  paragraph1: 'At Little Sunshine Daycare, we believe that the first five years of life lay the bedrock for all future learning, emotional wellbeing, and confidence. Founded as a welcoming home-away-from-home, our accredited community center ensures every infant, toddler, and preschooler receives warm, individualized attention in safe, sunlit classrooms.',
+  paragraph2: 'Our daily routines blend guided early learning with joyful, play-based exploration. Supported by a passionate team of credentialed educators and a strict 1:4 infant caregiver ratio, children develop strong social foundations, creative expression, and a lifelong curiosity for learning.'
 };
 
 export const missionData = {
-  title: 'Our Mission',
-  icon: '🎯',
-  description: 'To provide a safe, loving, and inspiring environment where young children grow emotionally, socially, and cognitively through play-based discovery and attentive caregiver guidance.'
+  title: 'Our Mission & Philosophy',
+  description: 'To provide a safe, loving, and inspiring early childhood sanctuary where young children thrive emotionally, socially, and cognitively through child-centered discovery, nature-infused play, and compassionate caregiver guidance.'
 };
 
 export const coreValues = [
   {
     id: 'val-care',
-    icon: '❤️',
-    title: 'Nurturing Care',
-    description: 'Prioritizing emotional security, warmth, and personal attention for every child.'
+    title: 'Attentive, Nurturing Care',
+    description: 'Prioritizing emotional security, physical comfort, and gentle personalized care for every child.',
+    iconSvg: 'heart'
   },
   {
     id: 'val-play',
-    icon: '🎨',
-    title: 'Play-Based Learning',
-    description: 'Encouraging hands-on exploration, storytime, and creative arts through guided discovery.'
+    title: 'Play-Based Discovery',
+    description: 'Encouraging hands-on tactile exploration, storytelling, music, and art through self-directed wonder.',
+    iconSvg: 'sparkles'
   },
   {
     id: 'val-respect',
-    icon: '🤝',
-    title: 'Kindness & Respect',
-    description: 'Fostering positive peer interactions, sharing, empathy, and social confidence.'
+    title: 'Kindness & Community',
+    description: 'Fostering empathy, positive peer collaboration, sharing, and emotional resilience from the earliest age.',
+    iconSvg: 'users'
   },
   {
     id: 'val-family',
-    icon: '💬',
-    title: 'Family Connection',
-    description: 'Maintaining open daily communication with parents to support continuity between home and care.'
+    title: 'Parent Partnership',
+    description: 'Daily digital logs, photo check-ins, and open communication to ensure complete peace of mind.',
+    iconSvg: 'message'
+  }
+];
+
+export const safetyStandards = [
+  {
+    title: 'Secure Access & Entry',
+    desc: 'Keypad-secured front entrance with visitor photo ID check-in and perimeter surveillance.',
+    icon: 'shield'
+  },
+  {
+    title: 'CPR & First-Aid Certified',
+    desc: '100% of teachers and staff maintain active pediatric First Aid, CPR, and AED certifications.',
+    icon: 'activity'
+  },
+  {
+    title: 'Hospital-Grade Sanitization',
+    desc: 'Eco-friendly, non-toxic sanitization of toys, cots, and learning surfaces throughout the day.',
+    icon: 'sparkles'
+  },
+  {
+    title: 'Fresh Organic Nutrition',
+    desc: 'Seasonal organic breakfasts, hot lunches, and wholesome afternoon snacks prepared daily on-site.',
+    icon: 'sun'
   }
 ];

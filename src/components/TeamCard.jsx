@@ -1,9 +1,5 @@
 import React from 'react';
 
-/**
- * TeamCard component
- * Displays a team member's fictional profile card with safe prototype image placeholders.
- */
 export default function TeamCard({ member }) {
   if (!member) return null;
 
@@ -12,26 +8,33 @@ export default function TeamCard({ member }) {
     role,
     bio,
     focusAreas = [],
-    initials = 'TS',
-    category = 'Staff'
+    initials = 'EC',
+    category = 'Staff',
+    credential = 'State Certified Educator',
+    image
   } = member;
 
   return (
     <article className="team-card">
       <div className="team-card-header">
-        <div 
-          className="team-avatar-placeholder" 
-          role="img" 
-          aria-label={`Visual portrait placeholder for ${name}`}
-        >
-          <div className="team-avatar-circle">
-            <span className="team-avatar-initials" aria-hidden="true">{initials}</span>
+        {image ? (
+          <div className="team-avatar-image-container">
+            <img src={image} alt={`Portrait of ${name}`} className="team-avatar-img" />
           </div>
-          <span className="team-avatar-tag" aria-hidden="true">Placeholder Portrait</span>
-        </div>
+        ) : (
+          <div 
+            className="team-avatar-placeholder" 
+            role="img" 
+            aria-label={`Visual portrait placeholder for ${name}`}
+          >
+            <div className="team-avatar-circle">
+              <span className="team-avatar-initials" aria-hidden="true">{initials}</span>
+            </div>
+          </div>
+        )}
         <div className="team-badge-row">
           <span className="team-category-badge">{category}</span>
-          <span className="team-demo-badge">Demo Staff</span>
+          <span className="team-credential-badge">{credential}</span>
         </div>
       </div>
 
@@ -42,7 +45,7 @@ export default function TeamCard({ member }) {
 
         {focusAreas.length > 0 && (
           <div className="team-focus-section">
-            <h4 className="team-focus-label">Key Focus Areas</h4>
+            <h4 className="team-focus-label">Specializations</h4>
             <ul className="team-focus-list">
               {focusAreas.map((focus, index) => (
                 <li key={index} className="team-focus-item">

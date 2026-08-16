@@ -3,15 +3,16 @@ import { Link } from 'react-router-dom';
 import ImagePlaceholder from './ImagePlaceholder';
 
 export default function ProgramDetailCard({ program, index }) {
-  const { title, ageGroup, description, environmentFocus, dailyFocusAreas, highlights, icon } = program;
+  const { title, ageGroup, description, environmentFocus, dailyFocusAreas, highlights, ratio, badgeVariant } = program;
   const isReversed = index % 2 === 1;
+  const badgeClass = badgeVariant ? `program-detail-badge badge-${badgeVariant}` : 'program-detail-badge';
 
   return (
     <article className={`program-detail-card ${isReversed ? 'is-reversed' : ''}`} id={program.id}>
       <div className="program-detail-content">
         <div className="program-detail-header">
-          <span className="program-detail-icon" aria-hidden="true">{icon}</span>
-          <span className="program-detail-badge">{ageGroup}</span>
+          <span className={badgeClass}>{ageGroup}</span>
+          {ratio && <span className="program-detail-ratio">{ratio}</span>}
         </div>
         <h3 className="program-detail-title">{title}</h3>
         <p className="program-detail-description">{description}</p>
@@ -27,7 +28,8 @@ export default function ProgramDetailCard({ program, index }) {
             <ul className="focus-areas-list">
               {dailyFocusAreas.map((area, idx) => (
                 <li key={idx}>
-                  <span className="focus-bullet" aria-hidden="true">•</span> {area}
+                  <span className="focus-bullet" aria-hidden="true">•</span>
+                  <span>{area}</span>
                 </li>
               ))}
             </ul>
@@ -36,26 +38,31 @@ export default function ProgramDetailCard({ program, index }) {
 
         <div className="program-detail-actions">
           <Link to="/contact" className="btn btn-primary">
-            Schedule a Visit
+            Schedule a Tour for this Age
           </Link>
-          <a href="#daily-routine" className="btn btn-outline">
-            View Sample Routine &rarr;
+          <a href="#schedule" className="btn btn-outline">
+            View Daily Routine &rarr;
           </a>
         </div>
       </div>
 
       <div className="program-detail-visual">
         <ImagePlaceholder
+          src={program.image}
+          alt={`${title} classroom and learning environment`}
           title={`${title} Learning Environment`}
           aspect="4/3"
-          icon={icon}
+          tag={ageGroup}
         />
         <div className="highlights-box mt-4">
-          <h4 className="highlights-title">Program Highlights</h4>
+          <h4 className="highlights-title">Curriculum Highlights</h4>
           <ul className="highlights-list">
             {highlights.map((item, idx) => (
               <li key={idx}>
-                <span className="check-mark" aria-hidden="true">✓</span> {item}
+                <svg className="check-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>{item}</span>
               </li>
             ))}
           </ul>

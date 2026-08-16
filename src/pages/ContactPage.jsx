@@ -5,10 +5,6 @@ import { faqsData } from '../data/faqs';
 import SectionTitle from '../components/SectionTitle';
 import ImagePlaceholder from '../components/ImagePlaceholder';
 
-/**
- * ContactPage component for Little Sunshine Daycare (Small Daycare Refactor)
- * Includes contact details, interactive inquiry form (demo submission), and Parent FAQ accordion.
- */
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -16,6 +12,8 @@ export default function ContactPage() {
     phone: '',
     childAge: '',
     program: 'infant-toddler',
+    tourType: 'in-person',
+    timeSlot: 'morning',
     preferredDate: '',
     message: ''
   });
@@ -42,8 +40,11 @@ export default function ContactPage() {
     } else if (!formData.email.includes('@') || !formData.email.includes('.')) {
       newErrors.email = 'Please enter a valid email address.';
     }
-    if (!formData.message.trim()) {
-      newErrors.message = 'Please enter your message or question.';
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Please provide a contact phone number.';
+    }
+    if (!formData.preferredDate) {
+      newErrors.preferredDate = 'Please select a preferred tour date.';
     }
     return newErrors;
   };
@@ -59,15 +60,6 @@ export default function ContactPage() {
 
     setErrors({});
     setIsSubmitted(true);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      childAge: '',
-      program: 'infant-toddler',
-      preferredDate: '',
-      message: ''
-    });
   };
 
   const toggleFaq = (id) => {
@@ -80,53 +72,62 @@ export default function ContactPage() {
       <section className="contact-hero-section">
         <div className="container">
           <div className="contact-hero-content text-center">
-            <span className="section-badge">Get In Touch</span>
-            <h1 className="page-title">Contact Us & Schedule a Visit</h1>
+            <span className="section-badge">Admissions & Visits</span>
+            <h1 className="page-title">Schedule a Tour & Connect with Us</h1>
             <p className="page-subtitle">
-              Have questions about our programs or want to tour our center? We’d love to welcome your family to {siteConfig.name}.
+              We would love to welcome your family for a private walkthrough. Meet our certified educators, observe our sunlit classrooms, and get all your questions answered.
             </p>
-
-            {/* Prototype Demo Banner */}
-            <div className="demo-notice-banner mt-6" role="note">
-              <span className="notice-icon">ℹ️</span>
-              <span>
-                <strong>Demonstration Notice:</strong> Form submissions and contact details on this page operate in frontend demonstration mode for prototype evaluation.
-              </span>
-            </div>
           </div>
         </div>
       </section>
 
       {/* 2. Contact Information & Operating Hours */}
-      <section className="section-padding">
+      <section className="section-padding bg-surface">
         <div className="container">
           <div className="grid grid-2 contact-info-grid">
             {/* Contact Details Card */}
             <div className="contact-info-card">
               <h2 className="contact-card-title">
-                <span aria-hidden="true">📞</span> Direct Contact Details
+                <svg className="contact-title-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Facility Contact Details
               </h2>
               <ul className="contact-detail-list">
                 <li className="contact-detail-item">
-                  <span className="contact-detail-icon" aria-hidden="true">📍</span>
+                  <div className="contact-detail-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
                   <div className="contact-detail-content">
-                    <strong>Facility Address</strong>
+                    <strong>Campus Address</strong>
                     <address>{siteConfig.address}</address>
                   </div>
                 </li>
                 <li className="contact-detail-item">
-                  <span className="contact-detail-icon" aria-hidden="true">☎️</span>
+                  <div className="contact-detail-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
                   <div className="contact-detail-content">
-                    <strong>Phone Line</strong>
+                    <strong>Admissions Phone Line</strong>
                     <a href={`tel:${siteConfig.phone.replace(/[^0-9]/g, '')}`}>
                       {siteConfig.phone}
                     </a>
                   </div>
                 </li>
                 <li className="contact-detail-item">
-                  <span className="contact-detail-icon" aria-hidden="true">✉️</span>
+                  <div className="contact-detail-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
                   <div className="contact-detail-content">
-                    <strong>Email Address</strong>
+                    <strong>Admissions Email</strong>
                     <a href={`mailto:${siteConfig.email}`}>
                       {siteConfig.email}
                     </a>
@@ -134,8 +135,8 @@ export default function ContactPage() {
                 </li>
               </ul>
               <div className="mt-auto">
-                <a href={`tel:${siteConfig.phone.replace(/[^0-9]/g, '')}`} className="btn btn-primary btn-block">
-                  Call Main Desk Now
+                <a href={`tel:${siteConfig.phone.replace(/[^0-9]/g, '')}`} className="btn btn-secondary btn-block">
+                  Call Main Desk: {siteConfig.phone}
                 </a>
               </div>
             </div>
@@ -143,22 +144,33 @@ export default function ContactPage() {
             {/* Hours & Location Card */}
             <div className="contact-hours-card">
               <h2 className="contact-card-title">
-                <span aria-hidden="true">🕒</span> Hours & Location Preview
+                <svg className="contact-title-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                Operating Hours & Campus
               </h2>
               <ul className="contact-detail-list">
                 <li className="contact-detail-item">
-                  <span className="contact-detail-icon" aria-hidden="true">⏰</span>
+                  <div className="contact-detail-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                  </div>
                   <div className="contact-detail-content">
-                    <strong>Operating Hours</strong>
+                    <strong>Facility Operating Hours</strong>
                     <span>{siteConfig.hours}</span>
                   </div>
                 </li>
               </ul>
-              <div className="mt-2">
+              <div>
                 <ImagePlaceholder
-                  title="Daycare Entryway & Parking Location"
+                  src="/images/hero_daycare_play.jpg"
+                  alt="Daycare center facility entrance and grounds"
+                  title="Daycare Entryway & Grounds"
                   aspect="16/9"
-                  icon="🏫"
+                  tag="Daycare Campus"
                 />
               </div>
             </div>
@@ -166,29 +178,34 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* 3. Inquiry & Visit Request Form */}
-      <section className="section-padding bg-surface">
+      {/* 3. Inquiry & Tour Booking Form */}
+      <section className="section-padding bg-surface-muted">
         <div className="container">
           <SectionTitle
-            badge="Send A Message"
-            title="Schedule a Tour or Inquiry"
-            subtitle="Fill out the form below to request a tour time or ask a question."
+            badge="Private Tour Booking"
+            badgeVariant="terracotta"
+            title="Book Your Guided Campus Walkthrough"
+            subtitle="Choose a convenient date and time to experience our classrooms in action."
           />
 
           <div className="contact-form-box">
             {isSubmitted && (
-              <div className="demo-confirm-alert" role="status" aria-live="polite">
-                <span className="demo-confirm-icon" aria-hidden="true">✅</span>
+              <div className="tour-confirm-alert" role="status" aria-live="polite">
+                <div className="tour-confirm-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
                 <div>
-                  <h3 className="demo-confirm-title">Inquiry Validated!</h3>
-                  <p className="demo-confirm-desc">
-                    <strong>Demo Notice:</strong> Thank you for testing the form! This is a demonstration website prototype, so your message was validated locally and no real email or personal data was transmitted.
+                  <h3 className="tour-confirm-title">Tour Request Received!</h3>
+                  <p className="tour-confirm-desc">
+                    Thank you, <strong>{formData.name || 'Parent'}</strong>! Our admissions coordinator will confirm your {formData.tourType === 'in-person' ? 'in-person visit' : 'virtual tour'} on <strong>{formData.preferredDate}</strong> ({formData.timeSlot === 'morning' ? '9:00 AM - 11:00 AM' : '2:00 PM - 4:00 PM'}) via email at <strong>{formData.email}</strong>.
                   </p>
                 </div>
               </div>
             )}
 
-            <form onSubmit={handleSubmit} noValidate aria-label="Daycare contact and tour request form">
+            <form onSubmit={handleSubmit} noValidate aria-label="Daycare tour booking and inquiry form">
               <div className="form-grid">
                 {/* Parent Name */}
                 <div className="form-group">
@@ -204,10 +221,9 @@ export default function ContactPage() {
                     onChange={handleChange}
                     aria-required="true"
                     aria-invalid={!!errors.name}
-                    aria-describedby={errors.name ? 'name-error' : undefined}
                     placeholder="e.g. Sarah Jenkins"
                   />
-                  {errors.name && <span id="name-error" className="field-error-text">{errors.name}</span>}
+                  {errors.name && <span className="field-error-text">{errors.name}</span>}
                 </div>
 
                 {/* Email Address */}
@@ -224,32 +240,34 @@ export default function ContactPage() {
                     onChange={handleChange}
                     aria-required="true"
                     aria-invalid={!!errors.email}
-                    aria-describedby={errors.email ? 'email-error' : undefined}
                     placeholder="e.g. sarah@example.com"
                   />
-                  {errors.email && <span id="email-error" className="field-error-text">{errors.email}</span>}
+                  {errors.email && <span className="field-error-text">{errors.email}</span>}
                 </div>
 
                 {/* Phone Number */}
                 <div className="form-group">
                   <label htmlFor="phone" className="form-label">
-                    Phone Number
+                    Phone Number <span className="required-star">*</span>
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
-                    className="form-input"
+                    className={`form-input ${errors.phone ? 'has-error' : ''}`}
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="e.g. (555) 000-0000"
+                    aria-required="true"
+                    aria-invalid={!!errors.phone}
+                    placeholder="e.g. (555) 123-4567"
                   />
+                  {errors.phone && <span className="field-error-text">{errors.phone}</span>}
                 </div>
 
                 {/* Child Age */}
                 <div className="form-group">
                   <label htmlFor="childAge" className="form-label">
-                    Child's Age / Stage
+                    Child's Current Age / Target Start Date
                   </label>
                   <input
                     type="text"
@@ -258,7 +276,7 @@ export default function ContactPage() {
                     className="form-input"
                     value={formData.childAge}
                     onChange={handleChange}
-                    placeholder="e.g. 18 months, 3 years"
+                    placeholder="e.g. 18 months • Starting Sept 2026"
                   />
                 </div>
 
@@ -282,45 +300,78 @@ export default function ContactPage() {
                   </select>
                 </div>
 
+                {/* Tour Format */}
+                <div className="form-group">
+                  <label htmlFor="tourType" className="form-label">
+                    Tour Format
+                  </label>
+                  <select
+                    id="tourType"
+                    name="tourType"
+                    className="form-select"
+                    value={formData.tourType}
+                    onChange={handleChange}
+                  >
+                    <option value="in-person">In-Person Campus Walkthrough</option>
+                    <option value="virtual">Virtual Live Video Tour</option>
+                  </select>
+                </div>
+
                 {/* Preferred Visit Date */}
                 <div className="form-group">
                   <label htmlFor="preferredDate" className="form-label">
-                    Preferred Visit Date
+                    Preferred Visit Date <span className="required-star">*</span>
                   </label>
                   <input
                     type="date"
                     id="preferredDate"
                     name="preferredDate"
-                    className="form-input"
+                    className={`form-input ${errors.preferredDate ? 'has-error' : ''}`}
                     value={formData.preferredDate}
                     onChange={handleChange}
+                    aria-required="true"
+                    aria-invalid={!!errors.preferredDate}
                   />
+                  {errors.preferredDate && <span className="field-error-text">{errors.preferredDate}</span>}
+                </div>
+
+                {/* Time Slot */}
+                <div className="form-group">
+                  <label htmlFor="timeSlot" className="form-label">
+                    Preferred Time Window
+                  </label>
+                  <select
+                    id="timeSlot"
+                    name="timeSlot"
+                    className="form-select"
+                    value={formData.timeSlot}
+                    onChange={handleChange}
+                  >
+                    <option value="morning">Morning Circle Time (9:00 AM - 11:00 AM)</option>
+                    <option value="afternoon">Afternoon Play & Music (2:00 PM - 4:00 PM)</option>
+                  </select>
                 </div>
 
                 {/* Message */}
                 <div className="form-group form-group-full">
                   <label htmlFor="message" className="form-label">
-                    Message / Questions <span className="required-star">*</span>
+                    Questions or Dietary/Routine Notes
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows="4"
-                    className={`form-textarea ${errors.message ? 'has-error' : ''}`}
+                    rows="3"
+                    className="form-textarea"
                     value={formData.message}
                     onChange={handleChange}
-                    aria-required="true"
-                    aria-invalid={!!errors.message}
-                    aria-describedby={errors.message ? 'message-error' : undefined}
-                    placeholder="Let us know any questions about availability or daily routines..."
+                    placeholder="Let us know any questions regarding open spots, sibling enrollment, or specific routine requirements..."
                   />
-                  {errors.message && <span id="message-error" className="field-error-text">{errors.message}</span>}
                 </div>
               </div>
 
-              <div className="mt-6 text-center">
+              <div className="mt-8 text-center">
                 <button type="submit" className="btn btn-primary btn-lg">
-                  Submit Inquiry (Demo)
+                  Confirm Tour Booking Request &rarr;
                 </button>
               </div>
             </form>
@@ -329,12 +380,13 @@ export default function ContactPage() {
       </section>
 
       {/* 4. Parent FAQ Accordion Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-surface" id="faq">
         <div className="container">
           <SectionTitle
-            badge="Parent Information"
+            badge="Parent Answers"
+            badgeVariant="sage"
             title="Frequently Asked Questions"
-            subtitle="Common questions about our daily routines, check-in, and parent communication."
+            subtitle="Everything you need to know about enrollment, daily communications, nutrition, and pickup."
           />
 
           <div className="faq-accordion-container">
