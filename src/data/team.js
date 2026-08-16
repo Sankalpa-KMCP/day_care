@@ -3,25 +3,23 @@
  */
 export const teamData = [
   {
-    id: 'director-1',
+    id: 'director-elena',
     name: 'Elena Rostova, M.Ed.',
-    role: 'Center Director & Lead Early Childhood Specialist',
-    bio: 'With over 12 years in early childhood development, Elena oversees our nurturing curriculum, safety protocols, and personalized caregiver mentorship.',
-    focusAreas: ['Early Literacy Development', 'Curriculum Design', 'Parent Partnership'],
+    role: 'Center Director & Lead Specialist',
+    bio: 'With over 12 years of experience in early childhood education, Elena oversees our nurturing curriculum, daily care standards, and family partnerships.',
+    focusAreas: ['Early Literacy & Language', 'Child-Centered Curriculum', 'Family Communication'],
     initials: 'ER',
     image: '/images/team_director_elena.jpg',
-    category: 'Leadership',
-    credential: 'M.Ed. Early Childhood • State Licensed'
+    credential: 'M.Ed. Early Childhood Development'
   },
   {
-    id: 'lead-preschool',
+    id: 'educator-marcus',
     name: 'Marcus Vance, B.A.',
-    role: 'Lead Educator & STEM Program Coordinator',
-    bio: 'Marcus specializes in inquiry-based preschool learning, sensory discovery, and helping young children build confidence and collaborative friendships.',
-    focusAreas: ['Inquiry-Based Math & Science', 'Music & Movement', 'Social-Emotional Learning'],
+    role: 'Lead Preschool Educator',
+    bio: 'Marcus specializes in hands-on early learning, sensory discovery, and helping young children build confidence, curiosity, and collaborative friendships.',
+    focusAreas: ['Hands-On Discovery', 'Creative Arts & Music', 'Social-Emotional Growth'],
     initials: 'MV',
     image: '/images/team_educator_marcus.jpg',
-    category: 'Teaching Faculty',
-    credential: 'B.A. Child Development • CPR/AED Certified'
+    credential: 'B.A. Child Development'
   }
 ];

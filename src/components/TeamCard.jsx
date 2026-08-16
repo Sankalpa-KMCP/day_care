@@ -9,50 +9,38 @@ export default function TeamCard({ member }) {
     bio,
     focusAreas = [],
     initials = 'EC',
-    category = 'Staff',
-    credential = 'State Certified Educator',
+    credential,
     image
   } = member;
 
   return (
-    <article className="team-card">
-      <div className="team-card-header">
+    <article className="educator-card">
+      <div className="educator-portrait-col">
         {image ? (
-          <div className="team-avatar-image-container">
-            <img src={image} alt={`Portrait of ${name}`} className="team-avatar-img" />
+          <div className="educator-portrait-frame">
+            <img src={image} alt={`Portrait of ${name}`} className="educator-portrait-img" />
           </div>
         ) : (
           <div 
-            className="team-avatar-placeholder" 
+            className="educator-avatar-placeholder" 
             role="img" 
-            aria-label={`Visual portrait placeholder for ${name}`}
+            aria-label={`Portrait placeholder for ${name}`}
           >
-            <div className="team-avatar-circle">
-              <span className="team-avatar-initials" aria-hidden="true">{initials}</span>
-            </div>
+            <span className="educator-avatar-initials" aria-hidden="true">{initials}</span>
           </div>
         )}
-        <div className="team-badge-row">
-          <span className="team-category-badge">{category}</span>
-          <span className="team-credential-badge">{credential}</span>
-        </div>
       </div>
 
-      <div className="team-card-body">
-        <h3 className="team-member-name">{name}</h3>
-        <p className="team-member-role">{role}</p>
-        <p className="team-member-bio">{bio}</p>
+      <div className="educator-body">
+        <h3 className="educator-name">{name}</h3>
+        <p className="educator-role">{role}</p>
+        {credential && <p className="educator-credential">{credential}</p>}
+        <p className="educator-bio">{bio}</p>
 
         {focusAreas.length > 0 && (
-          <div className="team-focus-section">
-            <h4 className="team-focus-label">Specializations</h4>
-            <ul className="team-focus-list">
-              {focusAreas.map((focus, index) => (
-                <li key={index} className="team-focus-item">
-                  {focus}
-                </li>
-              ))}
-            </ul>
+          <div className="educator-focus-row">
+            <span className="educator-focus-title">Focus:</span>
+            <span className="educator-focus-items">{focusAreas.join(' • ')}</span>
           </div>
         )}
       </div>

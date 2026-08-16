@@ -87,12 +87,12 @@ export default function AboutPage() {
           <span className="section-badge">Who We Are</span>
           <h1 className="page-title">About {siteConfig.name}</h1>
           <p className="page-subtitle">
-            An accredited early childhood academy providing attentive care, gentle learning, and a joyful community for infants, toddlers, and preschoolers.
+            A gentle, neighborhood early learning community providing attentive care, joyful play, and daily discovery for infants, toddlers, and preschoolers.
           </p>
         </div>
       </section>
 
-      {/* 2. Our Story & Mission Section */}
+      {/* 2. Our Story & Approach */}
       <section className="section-padding bg-surface">
         <div className="container grid grid-2 items-center story-grid">
           <div className="story-content">
@@ -104,38 +104,47 @@ export default function AboutPage() {
             />
             <p className="section-text">{aboutStory.paragraph1}</p>
             <p className="section-text">{aboutStory.paragraph2}</p>
-          </div>
-          <div className="mission-card">
-            <div className="mission-icon-box" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <circle cx="12" cy="12" r="6"></circle>
-                <circle cx="12" cy="12" r="2"></circle>
-              </svg>
+
+            <div className="story-mission-highlight">
+              <h3 className="mission-highlight-title">{missionData.title}</h3>
+              <p className="mission-highlight-text">{missionData.description}</p>
             </div>
-            <h3>{missionData.title}</h3>
-            <p>{missionData.description}</p>
+          </div>
+
+          <div className="story-visual">
+            <div className="story-image-frame">
+              <img
+                src="/images/prek_reading_nook.jpg"
+                alt="Children gathered for morning storytime in our sunlit classroom reading nook"
+                className="story-main-img"
+              />
+              <div className="story-image-caption">
+                Our morning story and reading corner
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Core Values */}
+      {/* 3. Core Values (Unboxed Editorial Presentation) */}
       <section className="section-padding bg-surface-muted">
         <div className="container">
           <SectionTitle
             badge="Guiding Principles"
             badgeVariant="sage"
             title="The Values That Guide Our Care"
-            subtitle="Our core values shape every interaction, routine, and learning discovery across our center."
+            subtitle="Four fundamental pillars shape every interaction, daily routine, and learning discovery across our center."
           />
-          <div className="grid grid-4 values-grid">
+          <div className="values-editorial-grid">
             {coreValues.map((value) => (
-              <div key={value.id} className={`value-card val-${value.variant || 'terracotta'}`}>
-                <div className="value-icon-box" aria-hidden="true">
+              <div key={value.id} className="value-editorial-item">
+                <div className="value-icon-marker" aria-hidden="true">
                   {getValIcon(value.iconSvg)}
                 </div>
-                <h3 className="value-title">{value.title}</h3>
-                <p className="value-desc">{value.description}</p>
+                <div className="value-text-content">
+                  <h3 className="value-item-title">{value.title}</h3>
+                  <p className="value-item-desc">{value.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -148,21 +157,18 @@ export default function AboutPage() {
           <SectionTitle
             badge="Health & Safety"
             badgeVariant="amber"
-            title="Our Uncompromising Safety Commitments"
-            subtitle="Your child's physical safety, emotional comfort, and health are our highest priority every second of the day."
+            title="Our Commitments to Your Child’s Well-Being"
+            subtitle="A clean, secure, and attentive environment where parents have complete peace of mind."
           />
-          <div className="grid grid-2 safety-grid">
+          <div className="safety-editorial-grid">
             {safetyStandards.map((item, idx) => (
-              <div key={idx} className="safety-card">
-                <div className="safety-icon-box" aria-hidden="true">
+              <div key={idx} className="safety-editorial-item">
+                <div className="safety-icon-marker" aria-hidden="true">
                   {getSafetyIcon(item.icon)}
                 </div>
-                <div className="safety-content">
-                  <div className="safety-header-row">
-                    <h4>{item.title}</h4>
-                    {item.chip && <span className="safety-chip">{item.chip}</span>}
-                  </div>
-                  <p>{item.desc}</p>
+                <div className="safety-text-content">
+                  <h3 className="safety-item-title">{item.title}</h3>
+                  <p className="safety-item-desc">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -170,16 +176,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. Care Team Section */}
+      {/* 5. The Educators Caring for Your Child */}
       <section className="section-padding bg-surface-muted">
         <div className="container">
           <SectionTitle
             badge="Dedicated Educators"
             badgeVariant="terracotta"
-            title="Meet Our Leadership & Faculty"
-            subtitle="Passionate, background-checked, credentialed educators who foster a warm connection with your child."
+            title="Meet the Team Caring for Your Child"
+            subtitle="With small group sizes and consistent daily caregivers, your child builds trusted, meaningful connections."
           />
-          <div className="about-team-grid">
+          <div className="educators-editorial-grid">
             {teamData.map((member) => (
               <TeamCard key={member.id} member={member} />
             ))}
@@ -195,7 +201,7 @@ export default function AboutPage() {
               <span className="section-badge badge-sage">Our Space</span>
               <h2>Designed for Joy, Safety & Discovery</h2>
               <p>
-                From naturally lit classrooms with low sensory tables to quiet nap alcoves and secure outdoor sensory gardens, our campus supports every milestone.
+                From naturally lit classrooms with low sensory tables to quiet nap alcoves and secure outdoor sensory play areas, our environment supports every milestone.
               </p>
               <div>
                 <Link to="/contact" className="btn btn-primary">
@@ -227,10 +233,10 @@ export default function AboutPage() {
       <section className="section-padding cta-section">
         <div className="container text-center">
           <div className="cta-box">
-            <span className="cta-badge">Visit Our Academy</span>
+            <span className="cta-badge">Visit Our Center</span>
             <h2 className="cta-title">Want to Learn More About {siteConfig.name}?</h2>
             <p className="cta-desc">
-              We invite you to schedule a tour, meet our caring educators, and explore our learning programs firsthand.
+              We invite you to schedule a morning walkthrough, meet our caring educators, and explore our learning rooms firsthand.
             </p>
             <div className="cta-buttons">
               <Link to="/contact" className="btn btn-primary btn-lg">
