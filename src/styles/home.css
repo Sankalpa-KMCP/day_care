@@ -1,11 +1,11 @@
 /* Homepage & Shared Home Component Styles */
 
 /* ==========================================================================
-   Hero Section
+   Hero Section (Warm Editorial Layout)
    ========================================================================== */
 .hero-section {
-  padding: var(--space-12) 0 var(--space-16) 0;
-  background: radial-gradient(circle at 85% 20%, rgba(254, 243, 232, 0.9) 0%, rgba(241, 248, 245, 0.6) 45%, #faf8f5 80%);
+  padding: var(--space-12) 0 var(--space-14) 0;
+  background: linear-gradient(180deg, #f6f1e8 0%, #faf8f5 100%);
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--color-border);
@@ -13,11 +13,9 @@
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.15fr 1fr;
   gap: var(--space-10);
   align-items: center;
-  position: relative;
-  z-index: 1;
 }
 
 .hero-content {
@@ -30,23 +28,31 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
-  background-color: var(--color-secondary-light);
-  color: #92400e;
-  border: 1px solid rgba(229, 169, 60, 0.35);
+  padding: 5px 12px;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
   font-weight: 700;
-  font-size: 0.8125rem;
-  letter-spacing: 0.03em;
+  font-size: 0.78125rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   border-radius: var(--radius-full);
   margin-bottom: var(--space-4);
   box-shadow: var(--shadow-sm);
 }
 
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  display: inline-block;
+}
+
 .hero-title {
-  font-size: clamp(2.25rem, 4vw, 3.25rem);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
   margin-bottom: var(--space-4);
   color: var(--color-text-main);
 }
@@ -56,7 +62,7 @@
   color: var(--color-text-muted);
   line-height: 1.65;
   margin-bottom: var(--space-8);
-  max-width: 580px;
+  max-width: 540px;
 }
 
 .hero-actions {
@@ -68,7 +74,7 @@
 
 .hero-trust-row {
   display: flex;
-  gap: var(--space-5);
+  gap: var(--space-6);
   flex-wrap: wrap;
   border-top: 1px solid var(--color-border);
   padding-top: var(--space-6);
@@ -83,44 +89,19 @@
   color: var(--color-text-muted);
 }
 
-.trust-check-bubble {
-  width: 22px;
-  height: 22px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-primary-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.trust-check-svg {
-  width: 14px;
-  height: 14px;
+.hero-trust-check {
   color: var(--color-primary);
-}
-
-.hero-image-wrapper {
-  position: relative;
-}
-
-.hero-image-backdrop {
-  position: absolute;
-  inset: -12px -12px 12px 12px;
-  border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
-  z-index: 0;
-  opacity: 0.7;
+  font-weight: 800;
+  font-size: 0.9375rem;
 }
 
 .hero-image-frame {
   position: relative;
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  border: 5px solid #ffffff;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
   background-color: var(--color-surface-muted);
-  z-index: 1;
 }
 
 .hero-main-img {
@@ -128,50 +109,6 @@
   aspect-ratio: 4/3;
   object-fit: cover;
   display: block;
-  transition: transform var(--transition-normal);
-}
-
-.hero-image-frame:hover .hero-main-img {
-  transform: scale(1.02);
-}
-
-.hero-floating-card {
-  position: absolute;
-  bottom: var(--space-5);
-  left: var(--space-5);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 12px 18px;
-  border-radius: var(--radius-lg);
-  box-shadow: 0 12px 28px rgba(24, 78, 69, 0.16);
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  border: 1px solid rgba(230, 223, 211, 0.8);
-  animation: floatSlow 4.5s ease-in-out infinite;
-  z-index: 2;
-}
-
-.floating-icon-svg {
-  width: 28px;
-  height: 28px;
-  color: var(--color-secondary);
-}
-
-.floating-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.floating-text strong {
-  font-size: 0.9375rem;
-  color: var(--color-text-main);
-}
-
-.floating-text span {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
 }
 
 /* ==========================================================================

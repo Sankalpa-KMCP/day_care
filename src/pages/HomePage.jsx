@@ -108,85 +108,47 @@ export default function HomePage() {
         <div className="container hero-container">
           <div className="hero-content">
             <span className="hero-badge">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-              Warm & Caring Early Childhood Academy
+              <span className="hero-badge-dot" aria-hidden="true"></span>
+              Small-Group Childcare in Maplewood
             </span>
             <h1 className="hero-title">
-              Where Little Minds Bloom & Big Adventures Begin
+              A calm, nurturing early learning home for your child
             </h1>
             <p className="hero-subtitle">
-              A loving, accredited daycare community where infants, toddlers, and preschool learners explore, play, and build lifelong confidence in a safe environment.
+              A gentle, play-centered neighborhood daycare where infants, toddlers, and preschool learners explore with curiosity, care, and confidence.
             </p>
             <div className="hero-actions">
               <Link to="/contact" className="btn btn-primary btn-lg">
-                Schedule a Visit Today
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+                Schedule a Morning Tour &rarr;
               </Link>
               <Link to="/programs" className="btn btn-outline btn-lg">
-                Explore Programs &rarr;
+                View Our Programs
               </Link>
             </div>
 
             <div className="hero-trust-row">
               <div className="hero-trust-item">
-                <div className="trust-check-bubble" aria-hidden="true">
-                  <svg className="trust-check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </div>
+                <span className="hero-trust-check" aria-hidden="true">✓</span>
                 <span>State Licensed & Certified</span>
               </div>
               <div className="hero-trust-item">
-                <div className="trust-check-bubble" aria-hidden="true">
-                  <svg className="trust-check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </div>
-                <span>Low 1:4 Care Ratio</span>
+                <span className="hero-trust-check" aria-hidden="true">✓</span>
+                <span>1:4 Low Care Ratio</span>
               </div>
               <div className="hero-trust-item">
-                <div className="trust-check-bubble" aria-hidden="true">
-                  <svg className="trust-check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </div>
-                <span>4.9★ Parent Rating</span>
+                <span className="hero-trust-check" aria-hidden="true">✓</span>
+                <span>Organic Fresh Daily Meals</span>
               </div>
             </div>
           </div>
 
           <div className="hero-visual">
-            <div className="hero-image-wrapper">
-              <div className="hero-image-backdrop" aria-hidden="true"></div>
-              <div className="hero-image-frame">
-                <img
-                  src="/images/hero_daycare_play.jpg"
-                  alt="Children playing with wooden blocks in a sunlit modern daycare room"
-                  className="hero-main-img"
-                />
-                <div className="hero-floating-card">
-                  <svg className="floating-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                  </svg>
-                  <div className="floating-text">
-                    <strong>98% Parent Satisfaction</strong>
-                    <span>Trusted by 150+ Local Families</span>
-                  </div>
-                </div>
-              </div>
+            <div className="hero-image-frame">
+              <img
+                src="/images/hero_daycare_play.jpg"
+                alt="Children playing with natural wooden blocks in our sunlit Maplewood classroom"
+                className="hero-main-img"
+              />
             </div>
           </div>
         </div>

@@ -324,15 +324,6 @@ img {
   }
 }
 
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
 /* Glassmorphism & Surface Utilities */
 .glass-panel {
   background: rgba(255, 255, 255, 0.88);
