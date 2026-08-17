@@ -21,7 +21,7 @@ export const programsData = [
       'Individualized feeding, nap logs, and milestone tracking'
     ],
     highlights: [
-      'Personalized daily feeding and nap logs in parent app',
+      'Personalized daily feeding, nap, and routine check-ins',
       'Hands-on tactile and sensory stimulation stations',
       'Safe, ultra-hygienic, shoe-free nursery rooms',
       'Dedicated primary caregiver assignment'

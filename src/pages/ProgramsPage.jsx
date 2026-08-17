@@ -73,36 +73,36 @@ export default function ProgramsPage() {
       <section className="page-hero-section">
         <div className="container">
           <div className="page-hero-content text-center">
-            <span className="section-badge">Curriculum & Age Groups</span>
+            <span className="section-badge">Curriculum & Daily Care</span>
             <h1 className="page-title">Early Learning & Care Programs</h1>
             <p className="page-subtitle">
               Discover age-tailored environments designed to nurture curiosity, play, social confidence, and foundational skills at {siteConfig.name}.
             </p>
           </div>
 
-          {/* Quick Jump Bar */}
-          <div className="program-jump-bar mt-8">
+          {/* Quick Jump Navigation */}
+          <nav className="program-jump-bar" aria-label="Jump to classroom program">
             {programsData.map((p) => (
               <a key={p.id} href={`#${p.id}`} className="jump-link">
                 <span>{p.category} ({p.ageGroup})</span>
                 <span aria-hidden="true">&darr;</span>
               </a>
             ))}
-          </div>
+          </nav>
         </div>
       </section>
 
-      {/* 2. Detailed Program List */}
+      {/* 2. Program Editorial Presentations */}
       <section className="section-padding bg-surface">
         <div className="container">
           <SectionTitle
             badge="Tailored Milestones"
             badgeVariant="terracotta"
-            title="Environments Built for Every Developmental Stage"
+            title="Classrooms Built for Every Developmental Stage"
             subtitle="Explore how each room adapts to your child’s growth, sensory needs, and emergent learning pace."
           />
           
-          <div className="program-details-list">
+          <div className="program-editorial-list">
             {programsData.map((program, index) => (
               <ProgramDetailCard key={program.id} program={program} index={index} />
             ))}
@@ -111,13 +111,13 @@ export default function ProgramsPage() {
       </section>
 
       {/* 3. Interactive Schedule & Daily Routine */}
-      <section className="section-padding bg-surface-muted">
+      <section className="section-padding bg-surface-muted" id="schedule">
         <div className="container">
           <ScheduleTimeline />
         </div>
       </section>
 
-      {/* 4. Learning Through Play (Integrated Activities Highlights) */}
+      {/* 4. Learning Through Play (Activity Highlights) */}
       <section className="section-padding bg-surface">
         <div className="container">
           <SectionTitle
@@ -126,77 +126,86 @@ export default function ProgramsPage() {
             title="Daily Enrichment & Activity Highlights"
             subtitle="Hands-on experiences woven into our everyday routines to foster creativity, motor skills, and curiosity."
           />
-          <div className="grid grid-3 activity-highlights-grid">
+          <div className="enrichment-editorial-grid">
             {activityHighlights.map((act) => (
-              <div key={act.id} className="activity-highlight-card">
-                <div className="activity-highlight-icon-box" aria-hidden="true">
+              <div key={act.id} className="enrichment-editorial-item">
+                <div className="enrichment-icon-marker" aria-hidden="true">
                   {getActivitySvg(act.iconSvg)}
                 </div>
-                <h3 className="activity-highlight-title">{act.title}</h3>
-                <p className="activity-highlight-desc">{act.desc}</p>
+                <div className="enrichment-text-content">
+                  <h3 className="enrichment-item-title">{act.title}</h3>
+                  <p className="enrichment-item-desc">{act.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. Program Selection & Room Placement Guidance */}
+      {/* 5. Family Welcome & Placement Guidance */}
       <section className="section-padding bg-surface-muted">
         <div className="container">
-          <div className="guidance-box">
-            <div className="guidance-content">
+          <div className="placement-guidance-container">
+            <div className="placement-guidance-content">
               <SectionTitle
                 badge="Finding the Right Fit"
                 badgeVariant="amber"
-                title="Room Placement & Gentle Transition Support"
+                title="How We Welcome New Families"
+                subtitle="A thoughtful, step-by-step transition tailored to your child's home routines and developmental pace."
                 centered={false}
               />
-              <p className="section-text">
-                Every child develops at their own unique pace. During your tour and enrollment consultation, our early education director reviews your child's home routines, dietary rhythms, and developmental stage to recommend the ideal placement.
-              </p>
-              <div className="guidance-stepper">
-                <div className="guidance-step-item">
-                  <div className="guidance-step-num" aria-hidden="true">1</div>
-                  <div className="guidance-step-body">
-                    <strong>Schedule an In-Person Tour</strong>
-                    <span>Tour our classrooms, observe daily rhythm and teacher interactions, and see the environment in person.</span>
+              <div className="placement-process-list">
+                <div className="placement-step-item">
+                  <div className="placement-step-marker" aria-hidden="true">1</div>
+                  <div className="placement-step-body">
+                    <h4 className="placement-step-heading">Schedule an In-Person Tour</h4>
+                    <p className="placement-step-desc">
+                      Walk through our classrooms, observe the daily rhythm, and see our educators in action.
+                    </p>
                   </div>
                 </div>
-                <div className="guidance-step-item">
-                  <div className="guidance-step-num" aria-hidden="true">2</div>
-                  <div className="guidance-step-body">
-                    <strong>Share Your Child's Unique Rhythm</strong>
-                    <span>Discuss feeding schedules, nap comfort habits, developmental milestones, and special interests.</span>
+                <div className="placement-step-item">
+                  <div className="placement-step-marker" aria-hidden="true">2</div>
+                  <div className="placement-step-body">
+                    <h4 className="placement-step-heading">Share Your Child's Daily Rhythm</h4>
+                    <p className="placement-step-desc">
+                      Discuss feeding, nap routines, comfort preferences, and developmental milestones with our director.
+                    </p>
                   </div>
                 </div>
-                <div className="guidance-step-item">
-                  <div className="guidance-step-num" aria-hidden="true">3</div>
-                  <div className="guidance-step-body">
-                    <strong>Gentle Gradual Transition</strong>
-                    <span>We offer flexible trial drop-in mornings to build emotional security and comfort before full start.</span>
+                <div className="placement-step-item">
+                  <div className="placement-step-marker" aria-hidden="true">3</div>
+                  <div className="placement-step-body">
+                    <h4 className="placement-step-heading">Gentle Transition Schedule</h4>
+                    <p className="placement-step-desc">
+                      A supported start designed to build emotional security and comfort in the new environment.
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="guidance-cta-card">
-              <h3>Have Questions About Placement?</h3>
-              <p>We are here to help you find the perfect room and schedule for your family.</p>
-              <Link to="/contact" className="btn btn-primary btn-block mt-4">
-                Book an Admissions Consultation
+            
+            <div className="placement-invite-card">
+              <h3 className="placement-invite-title">Have Questions About Placement?</h3>
+              <p className="placement-invite-desc">
+                We are happy to answer any questions about our age rooms, daily routines, and program availability.
+              </p>
+              <Link to="/contact" className="btn btn-primary btn-block">
+                Schedule a Morning Visit &rarr;
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 6. Final CTA */}
+      {/* 6. Final CTA Banner */}
       <section className="section-padding cta-section">
         <div className="container text-center">
           <div className="cta-box">
             <span className="cta-badge">Schedule A Visit</span>
             <h2 className="cta-title">Ready to Explore Our Programs in Person?</h2>
             <p className="cta-desc">
-              Come tour our classrooms, see our daily routines in action, and meet our passionate educators.
+              Come tour our classrooms, see our daily routines in action, and meet our dedicated educators.
             </p>
             <div className="cta-buttons">
               <Link to="/contact" className="btn btn-primary btn-lg">

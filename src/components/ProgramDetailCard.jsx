@@ -1,34 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ImagePlaceholder from './ImagePlaceholder';
 
 export default function ProgramDetailCard({ program, index }) {
-  const { title, ageGroup, description, environmentFocus, dailyFocusAreas, highlights, ratio, badgeVariant } = program;
+  const { title, ageGroup, description, environmentFocus, dailyFocusAreas, highlights, ratio, image } = program;
   const isReversed = index % 2 === 1;
-  const badgeClass = badgeVariant ? `program-detail-badge badge-${badgeVariant}` : 'program-detail-badge';
 
   return (
-    <article className={`program-detail-card ${isReversed ? 'is-reversed' : ''}`} id={program.id}>
-      <div className="program-detail-content">
-        <div className="program-detail-header">
-          <span className={badgeClass}>{ageGroup}</span>
-          {ratio && <span className="program-detail-ratio">{ratio}</span>}
+    <article className={`program-editorial-item ${isReversed ? 'is-reversed' : ''}`} id={program.id}>
+      <div className="program-editorial-content">
+        <div className="program-meta-row">
+          <span className="program-age-chip">{ageGroup}</span>
+          {ratio && <span className="program-ratio-chip">{ratio}</span>}
         </div>
-        <h3 className="program-detail-title">{title}</h3>
-        <p className="program-detail-description">{description}</p>
+        <h3 className="program-editorial-title">{title}</h3>
+        <p className="program-editorial-desc">{description}</p>
         
-        <div className="program-detail-block">
-          <h4 className="block-label">Environment Focus</h4>
-          <p className="block-text">{environmentFocus}</p>
+        <div className="program-info-block">
+          <h4 className="program-block-label">Classroom Environment</h4>
+          <p className="program-block-text">{environmentFocus}</p>
         </div>
 
         {dailyFocusAreas && (
-          <div className="program-detail-block">
-            <h4 className="block-label">Key Developmental Focus Areas</h4>
-            <ul className="focus-areas-list">
+          <div className="program-info-block">
+            <h4 className="program-block-label">Daily Learning Focus</h4>
+            <ul className="program-focus-list">
               {dailyFocusAreas.map((area, idx) => (
                 <li key={idx}>
-                  <span className="focus-bullet" aria-hidden="true">•</span>
+                  <span className="focus-dot" aria-hidden="true">•</span>
                   <span>{area}</span>
                 </li>
               ))}
@@ -36,37 +34,35 @@ export default function ProgramDetailCard({ program, index }) {
           </div>
         )}
 
-        <div className="program-detail-actions">
+        <div className="program-actions-row">
           <Link to="/contact" className="btn btn-primary">
-            Schedule a Tour for this Age
+            Schedule a Tour for this Age &rarr;
           </Link>
-          <a href="#schedule" className="btn btn-outline">
-            View Daily Routine &rarr;
-          </a>
         </div>
       </div>
 
-      <div className="program-detail-visual">
-        <ImagePlaceholder
-          src={program.image}
-          alt={`${title} classroom and learning environment`}
-          title={`${title} Learning Environment`}
-          aspect="4/3"
-          tag={ageGroup}
-        />
-        <div className="highlights-box mt-4">
-          <h4 className="highlights-title">Curriculum Highlights</h4>
-          <ul className="highlights-list">
-            {highlights.map((item, idx) => (
-              <li key={idx}>
-                <svg className="check-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+      <div className="program-editorial-visual">
+        <div className="program-photo-frame">
+          <img
+            src={image}
+            alt={`${title} classroom and learning environment`}
+            className="program-photo-img"
+          />
         </div>
+        
+        {highlights && highlights.length > 0 && (
+          <div className="program-highlights-box">
+            <h4 className="highlights-box-label">Curriculum Takeaways</h4>
+            <ul className="highlights-box-list">
+              {highlights.map((item, idx) => (
+                <li key={idx}>
+                  <span className="highlight-check" aria-hidden="true">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </article>
   );
