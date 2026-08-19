@@ -1,149 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
-import { siteConfig, navLinks } from '../data/placeholderData';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { navLinks, siteConfig } from '../data/placeholderData';
+
+function LeafMark() {
+  return (
+    <svg className="leaf-mark" viewBox="0 0 56 56" aria-hidden="true">
+      <path d="M11 40C15 18 29 8 47 8c-1 18-12 34-31 36" />
+      <path d="M14 43c7-12 15-20 27-28" />
+      <path d="M25 31c-1-5 0-9 2-13M27 30c5 0 9 1 12 3" />
+    </svg>
+  );
+}
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  // Close mobile menu on route change
+  useEffect(() => setOpen(false), [location]);
   useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location]);
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = open ? 'hidden' : '';
+    const close = (event) => event.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', close);
     return () => {
       document.body.style.overflow = '';
+      window.removeEventListener('keydown', close);
     };
-  }, [isMenuOpen]);
-
-  // Close menu on Escape key
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && isMenuOpen) {
-        setIsMenuOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isMenuOpen]);
-
-  const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+  }, [open]);
 
   return (
-    <header className="navbar-header">
-      {/* Top Announcement Bar */}
-      <div className="top-announcement-bar">
-        <div className="container announcement-container">
-          <span className="announcement-label">Now Enrolling</span>
-          <span className="announcement-divider" aria-hidden="true">•</span>
-          <span className="announcement-text">Fall Admissions Open • Small Class Sizes & Attentive Care</span>
-          <Link to="/contact" className="announcement-link">Book a Tour &rarr;</Link>
-        </div>
-      </div>
-
-      <div className="container navbar-container">
-        {/* Brand / Logo */}
-        <Link to="/" className="navbar-brand" onClick={() => setIsMenuOpen(false)}>
-          <div className="brand-logo-badge" aria-hidden="true">
-            <svg className="brand-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-          </div>
-          <div className="brand-text-col">
-            <span className="brand-name">{siteConfig.name}</span>
-            <span className="brand-subtext">Early Learning Academy</span>
-          </div>
+    <header className="site-header">
+      <div className="container nav-shell">
+        <Link to="/" className="wordmark" aria-label={`${siteConfig.name} home`}>
+          <LeafMark />
+          <span><strong>{siteConfig.name}</strong><small>Early Learning House</small></span>
         </Link>
-
-        {/* Mobile Menu Toggle Button */}
-        <button
-          type="button"
-          className="navbar-toggle"
-          onClick={toggleMenu}
-          aria-expanded={isMenuOpen}
-          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-controls="primary-navigation"
-        >
-          <span className="toggle-icon">
-            {isMenuOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            )}
-          </span>
+        <button className="menu-toggle" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="primary-navigation" aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}>
+          <span /> <span />
         </button>
-
-        {/* Navigation Menu */}
-        <nav
-          id="primary-navigation"
-          className={`navbar-nav ${isMenuOpen ? 'is-open' : ''}`}
-          aria-label="Main navigation"
-        >
-          <ul className="nav-list">
-            {navLinks.map((link) => (
-              <li key={link.path} className="nav-item">
-                <NavLink
-                  to={link.path}
-                  end={link.path === '/'}
-                  className={({ isActive }) =>
-                    `nav-link ${isActive ? 'active' : ''}`
-                  }
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-
-          <div className="nav-cta-wrapper">
-            <Link
-              to="/contact"
-              className="btn btn-primary nav-cta"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <span>Schedule a Tour</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </Link>
-          </div>
+        <nav id="primary-navigation" className={`editorial-nav ${open ? 'is-open' : ''}`} aria-label="Main navigation">
+          <ul>{navLinks.map((item) => <li key={item.path}><NavLink to={item.path} end={item.path === '/'}>{item.label}</NavLink></li>)}</ul>
+          <div className="nav-endcap"><span className="status-dot">Concept stage</span><Link className="text-link nav-inquiry" to="/contact">Plan a visit <span aria-hidden="true">↗</span></Link></div>
         </nav>
-
-        {/* Mobile Menu Backdrop */}
-        {isMenuOpen && (
-          <div
-            className="navbar-backdrop"
-            onClick={() => setIsMenuOpen(false)}
-            aria-hidden="true"
-          />
-        )}
       </div>
+      {open && <button className="nav-scrim" type="button" onClick={() => setOpen(false)} aria-label="Close navigation menu" />}
     </header>
   );
 }

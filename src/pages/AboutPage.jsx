@@ -1,254 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { siteConfig } from '../data/placeholderData';
-import { aboutStory, missionData, coreValues, safetyStandards } from '../data/about';
-import { teamData } from '../data/team';
-import SectionTitle from '../components/SectionTitle';
-import ImagePlaceholder from '../components/ImagePlaceholder';
+import Reveal from '../components/Reveal';
 import TeamCard from '../components/TeamCard';
+import { teamData } from '../data/team';
+import { editorialImage } from '../utils/assetPath';
+
+const principles = [
+  ['Care before curriculum', 'A child who feels safe can explore. Relationships come first, every time.'],
+  ['Fewer, better things', 'Open-ended materials invite more thought than a room crowded with instructions.'],
+  ['Real life belongs here', 'Folding cloth, watering herbs, sharing food, and repairing mistakes are meaningful learning.'],
+  ['Families are partners', 'We want regular conversation, not a polished report that arrives too late.'],
+];
+
+const plannedStandards = [
+  ['Consistent caregivers', 'Thoughtful staffing and familiar adults who have time to know each child.'],
+  ['Safe, calm rooms', 'Secure entry, careful supervision, clean materials, and places to retreat from noise.'],
+  ['Daily outdoor life', 'A garden designed for water, sand, growing, balancing, and every kind of weather.'],
+  ['Open communication', 'Simple, useful notes about food, rest, play, mood, and moments worth remembering.'],
+];
 
 export default function AboutPage() {
-  const getValIcon = (type) => {
-    switch (type) {
-      case 'heart':
-        return (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-          </svg>
-        );
-      case 'sparkles':
-        return (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-          </svg>
-        );
-      case 'users':
-        return (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>
-        );
-      case 'message':
-      default:
-        return (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-          </svg>
-        );
-    }
-  };
-
-  const getSafetyIcon = (icon) => {
-    switch (icon) {
-      case 'shield':
-        return (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg>
-        );
-      case 'activity':
-        return (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-          </svg>
-        );
-      case 'sparkles':
-        return (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-        );
-      case 'sun':
-      default:
-        return (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-        );
-    }
-  };
-
   return (
-    <div className="about-page">
-      {/* 1. Page Hero */}
-      <section className="page-hero-section">
-        <div className="container text-center">
-          <span className="section-badge">Who We Are</span>
-          <h1 className="page-title">About {siteConfig.name}</h1>
-          <p className="page-subtitle">
-            A gentle, neighborhood early learning community providing attentive care, joyful play, and daily discovery for infants, toddlers, and preschoolers.
-          </p>
+    <div className="editorial-page luxury-inner about-luxury">
+      <header className="inner-hero luxury-inner-hero">
+        <div className="container inner-hero-grid"><div><p className="kicker">Why The Little Grove</p><h1>A slower, more human kind of early learning.</h1></div><p className="inner-deck">A future neighborhood place where care is personal, play has breathing room, and childhood is not treated like a race.</p></div>
+      </header>
+
+      <Reveal as="section" className="section-editorial about-manifesto">
+        <div className="container manifesto-grid">
+          <figure className="manifesto-photo"><img src={editorialImage('outdoor-garden.webp')} alt="Illustrative children and a guide exploring a natural play garden" width="1800" height="1200" /><figcaption>Illustrative concept image · proposed outdoor life</figcaption></figure>
+          <div className="manifesto-copy"><p className="kicker">The beginning</p><h2>Built from one simple question.</h2><p className="pull-quote">“What if a childcare day felt warm, capable, and genuinely unhurried?”</p><p>The Little Grove is a future-business concept shaped around that question: small groups, beautiful ordinary materials, educators with time to listen, and a close rhythm between home and the learning house.</p><p>This site is an honest sketch of the intention—not a claim that the team, facility, or final operating details already exist.</p></div>
         </div>
-      </section>
-
-      {/* 2. Our Story & Approach */}
-      <section className="section-padding bg-surface">
-        <div className="container grid grid-2 items-center story-grid">
-          <div className="story-content">
-            <SectionTitle
-              badge="Our Story"
-              badgeVariant="terracotta"
-              title={aboutStory.title}
-              centered={false}
-            />
-            <p className="section-text">{aboutStory.paragraph1}</p>
-            <p className="section-text">{aboutStory.paragraph2}</p>
-
-            <div className="story-mission-highlight">
-              <h3 className="mission-highlight-title">{missionData.title}</h3>
-              <p className="mission-highlight-text">{missionData.description}</p>
-            </div>
-          </div>
-
-          <div className="story-visual">
-            <div className="story-image-frame">
-              <img
-                src="/images/prek_reading_nook.jpg"
-                alt="Children gathered for morning storytime in our sunlit classroom reading nook"
-                className="story-main-img"
-              />
-              <div className="story-image-caption">
-                Our morning story and reading corner
-              </div>
-            </div>
-          </div>
+        <div className="container manifesto-principles">
+          <p className="kicker">What we return to</p>
+          <ol>{principles.map(([title, text], index) => <li key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}</ol>
         </div>
-      </section>
+      </Reveal>
 
-      {/* 3. Core Values (Unboxed Editorial Presentation) */}
-      <section className="section-padding bg-surface-muted">
-        <div className="container">
-          <SectionTitle
-            badge="Guiding Principles"
-            badgeVariant="sage"
-            title="The Values That Guide Our Care"
-            subtitle="Four fundamental pillars shape every interaction, daily routine, and learning discovery across our center."
-          />
-          <div className="values-editorial-grid">
-            {coreValues.map((value) => (
-              <div key={value.id} className="value-editorial-item">
-                <div className="value-icon-marker" aria-hidden="true">
-                  {getValIcon(value.iconSvg)}
-                </div>
-                <div className="value-text-content">
-                  <h3 className="value-item-title">{value.title}</h3>
-                  <p className="value-item-desc">{value.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Reveal as="section" className="section-editorial standards-section luxury-standards"><div className="container"><div className="section-lead offset-lead"><p className="kicker">Planned standards</p><h2>Trust should come from what happens every day.</h2><p>These are design commitments for the future program. Licensing, policies, staffing, and ratios will be published only when finalized.</p></div><div className="standards-list">{plannedStandards.map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div></div></Reveal>
 
-      {/* 4. Safety & Health Commitments */}
-      <section className="section-padding bg-surface">
-        <div className="container">
-          <SectionTitle
-            badge="Health & Safety"
-            badgeVariant="amber"
-            title="Our Commitments to Your Child’s Well-Being"
-            subtitle="A clean, secure, and attentive environment where parents have complete peace of mind."
-          />
-          <div className="safety-editorial-grid">
-            {safetyStandards.map((item, idx) => (
-              <div key={idx} className="safety-editorial-item">
-                <div className="safety-icon-marker" aria-hidden="true">
-                  {getSafetyIcon(item.icon)}
-                </div>
-                <div className="safety-text-content">
-                  <h3 className="safety-item-title">{item.title}</h3>
-                  <p className="safety-item-desc">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Reveal as="section" className="section-editorial guides-section luxury-guides"><div className="container"><div className="section-lead"><p className="kicker">The people we hope to gather</p><h2>Warm guides. Serious observers. Play partners.</h2><p>The profiles below are illustrative—not current employees. They show the character and range we hope to hire for.</p></div><div className="guides-grid">{teamData.map((member) => <TeamCard key={member.id} member={member} />)}</div></div></Reveal>
 
-      {/* 5. The Educators Caring for Your Child */}
-      <section className="section-padding bg-surface-muted">
-        <div className="container">
-          <SectionTitle
-            badge="Dedicated Educators"
-            badgeVariant="terracotta"
-            title="Meet the Team Caring for Your Child"
-            subtitle="With small group sizes and consistent daily caregivers, your child builds trusted, meaningful connections."
-          />
-          <div className="educators-editorial-grid">
-            {teamData.map((member) => (
-              <TeamCard key={member.id} member={member} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <Reveal as="section" className="about-finale"><figure><img src={editorialImage('infant-care.webp')} alt="Illustrative gentle sensory play in a future infant room" width="1400" height="1050" /></figure><div className="container about-finale-copy"><p className="kicker light">The feeling</p><h2>Soft voices.<br />Useful beauty.<br />Time to try again.</h2><p>Not spotless for the photograph. Not busy for the sake of looking educational. Just thoughtful rooms where children can belong.</p><Link className="text-link light-link" to="/programs">Explore the program idea <span aria-hidden="true">→</span></Link></div><span className="photo-disclosure">Illustrative concept image</span></Reveal>
 
-      {/* 6. Campus & Space Preview */}
-      <section className="section-padding bg-surface">
-        <div className="container">
-          <div className="environment-preview-box">
-            <div className="environment-preview-content">
-              <span className="section-badge badge-sage">Our Space</span>
-              <h2>Designed for Joy, Safety & Discovery</h2>
-              <p>
-                From naturally lit classrooms with low sensory tables to quiet nap alcoves and secure outdoor sensory play areas, our environment supports every milestone.
-              </p>
-              <div>
-                <Link to="/contact" className="btn btn-primary">
-                  Schedule an In-Person Tour &rarr;
-                </Link>
-              </div>
-            </div>
-            <div className="environment-preview-visual grid grid-2">
-              <ImagePlaceholder
-                src="/images/preschool_art_play.jpg"
-                alt="Classroom learning and creative corner"
-                title="Art & Sensory Studio"
-                aspect="4/3"
-                tag="Art Studio"
-              />
-              <ImagePlaceholder
-                src="/images/infant_toddler_room.jpg"
-                alt="Infant and Toddler Nursery Suite"
-                title="Sensory Play Room"
-                aspect="4/3"
-                tag="Nursery Room"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Final CTA Banner */}
-      <section className="section-padding cta-section">
-        <div className="container text-center">
-          <div className="cta-box">
-            <span className="cta-badge">Visit Our Center</span>
-            <h2 className="cta-title">Want to Learn More About {siteConfig.name}?</h2>
-            <p className="cta-desc">
-              We invite you to schedule a morning walkthrough, meet our caring educators, and explore our learning rooms firsthand.
-            </p>
-            <div className="cta-buttons">
-              <Link to="/contact" className="btn btn-primary btn-lg">
-                Schedule a Visit Now
-              </Link>
-              <Link to="/programs" className="btn btn-outline-white btn-lg">
-                Explore Programs &rarr;
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Reveal as="section" className="closing-invitation luxury-invitation"><div className="container invitation-grid"><p className="kicker light">Add your voice</p><h2>A future place should listen to future families.</h2><div><p>Share your needs, questions, and hopes for care in your neighborhood.</p><Link className="button-light" to="/contact">Start a conversation</Link></div></div></Reveal>
     </div>
   );
 }

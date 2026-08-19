@@ -2,12 +2,15 @@
  * Centralized placeholder business data and navigation configuration for Daycare Application
  */
 export const siteConfig = {
-  name: 'Little Sunshine Daycare',
-  tagline: 'A Nurturing Environment for Early Childhood Learning',
-  phone: '(555) 123-4567',
-  email: 'info@littlesunshinedaycare.demo',
-  address: '123 Learning Lane, Sunshine City, SC 12345',
-  hours: 'Monday - Friday: 7:00 AM - 6:00 PM',
+  name: 'The Little Grove',
+  fullName: 'The Little Grove Early Learning House',
+  tagline: 'Small days. Deep roots.',
+  statusLabel: 'A future early-learning concept',
+  phone: '(555) 014-0284',
+  email: 'hello@thelittlegrove.demo',
+  address: 'Future home to be announced',
+  hours: 'Planned hours · Monday–Friday, 7:30 AM–5:30 PM',
+  conceptLabel: 'Concept website · details and people shown are illustrative',
 };
 
 export const navLinks = [
@@ -16,4 +19,3 @@ export const navLinks = [
   { label: 'Programs', path: '/programs' },
   { label: 'Contact', path: '/contact' },
 ];
-

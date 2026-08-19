@@ -1,149 +1,51 @@
-/**
- * Educational Programs, Activity Highlights, and Schedules
- * for Little Sunshine Daycare & Early Learning Academy
- */
+import { editorialImage } from '../utils/assetPath';
 
 export const programsData = [
   {
-    id: 'infant-toddler',
-    title: 'Infant & Toddler Care',
-    ageGroup: '6 Weeks - 2 Years',
-    category: 'Infants & Toddlers',
-    ratio: '1:4 Caregiver Ratio',
-    image: '/images/infant_toddler_room.jpg',
-    badgeVariant: 'sage',
-    description: 'A gentle, warm, and responsive environment focusing on sensory exploration, motor coordination, and nurturing individual routines for our youngest learners.',
-    environmentFocus: 'Quiet padded rest zones, sensory exploration tables, low soft play stations, and secure indoor/outdoor crawler yards.',
-    dailyFocusAreas: [
-      'Responsive one-on-one caregiver bonding',
-      'Sensory exploration with soft natural textures & calming music',
-      'Supported motor coordination and tummy-time balance',
-      'Individualized feeding, nap logs, and milestone tracking'
-    ],
-    highlights: [
-      'Personalized daily feeding, nap, and routine check-ins',
-      'Hands-on tactile and sensory stimulation stations',
-      'Safe, ultra-hygienic, shoe-free nursery rooms',
-      'Dedicated primary caregiver assignment'
-    ]
+    id: 'infant-toddler', title: 'The Nest', category: 'Infants & young toddlers', ageGroup: '6 weeks–2 years', ratio: 'Planned small groups',
+    image: editorialImage('infant-care.webp'), imageAlt: 'Illustrative caregiver sharing gentle sensory play with two infants',
+    description: 'A soft landing for first separations, built around familiar rhythms, unhurried care, and close attention.',
+    environmentFocus: 'Quiet floor play, restful corners, familiar caregivers, and room to move at each child’s pace.',
+    dailyFocusAreas: ['Responsive care and secure attachment', 'Sensory play with simple natural materials', 'Individual feeding and rest rhythms'],
+    highlights: ['A consistent primary caregiver', 'Daily rhythm notes for families', 'Calm, low-stimulation spaces']
   },
   {
-    id: 'preschool-learning',
-    title: 'Preschool Learning Academy',
-    ageGroup: '2.5 - 4 Years',
-    category: 'Preschool',
-    ratio: '1:7 Teacher Ratio',
-    image: '/images/preschool_art_play.jpg',
-    badgeVariant: 'terracotta',
-    description: 'Fostering natural curiosity, early language skills, foundational math concepts, and social sharing through collaborative play.',
-    environmentFocus: 'Interactive learning centers for art, emergent reading, wooden block architecture, rhythm, and dramatic play.',
-    dailyFocusAreas: [
-      'Interactive morning circle, phonics games & vocabulary',
-      'Shape sorting, counting, and pattern reasoning puzzles',
-      'Cooperative group games and empathetic friendship building',
-      'Expressive visual art, clay sculpting, and musical movement'
-    ],
-    highlights: [
-      'Interactive reading and language circle time',
-      'Early math and spatial reasoning discovery kits',
-      'Guided social learning and emotion regulation',
-      'Daily creative arts and supervised nature play'
-    ]
+    id: 'preschool-learning', title: 'The Meadow', category: 'Toddlers & preschool', ageGroup: '2–4 years', ratio: 'Planned small groups',
+    image: editorialImage('preschool-art.webp'), imageAlt: 'Illustrative preschool children making nature-inspired art together',
+    description: 'A lively studio for language, messy making, friendship, movement, and the serious work of play.',
+    environmentFocus: 'Open-ended art, block building, story circles, music, and a daily stretch of outdoor discovery.',
+    dailyFocusAreas: ['Conversation, stories, and early language', 'Collaborative art and imaginative play', 'Movement, nature, and growing independence'],
+    highlights: ['Long blocks of uninterrupted play', 'Small-group stories and projects', 'Daily outdoor exploration']
   },
   {
-    id: 'pre-k-readiness',
-    title: 'Pre-K Kindergarten Readiness',
-    ageGroup: '4 - 5 Years',
-    category: 'Pre-Kindergarten',
-    ratio: '1:10 Teacher Ratio',
-    image: '/images/prek_reading_nook.jpg',
-    badgeVariant: 'amber',
-    description: 'Building self-confidence, concentration, emergent handwriting, STEM problem-solving, and independence to ensure smooth kindergarten transition.',
-    environmentFocus: 'Structured classroom with cozy literacy nooks, hands-on STEM tables, and independent creative project stations.',
-    dailyFocusAreas: [
-      'Emergent reading comprehension, sight words & handwriting',
-      'Early math operations, measurement & science discovery',
-      'Developing focus, active listening, and self-directed projects',
-      'Collaborative teamwork and conflict resolution skills'
-    ],
-    highlights: [
-      'Kindergarten readiness curriculum with progress reviews',
-      'Hands-on science discovery and nature lab experiments',
-      'Self-regulation and active listening exercises',
-      'Quarterly developmental parent-teacher conferences'
-    ]
-  }
-];
-
-export const activityHighlights = [
-  {
-    id: 'art-crafts',
-    title: 'Arts & Creative Crafts',
-    desc: 'Exploring colors, textures, finger painting, and collage work to foster fine motor skills and creative confidence.',
-    iconSvg: 'palette'
-  },
-  {
-    id: 'literacy-story',
-    title: 'Storytime & Language',
-    desc: 'Interactive group reading sessions that build vocabulary, listening comprehension, and a love for reading.',
-    iconSvg: 'book'
-  },
-  {
-    id: 'music-rhythm',
-    title: 'Music & Movement',
-    desc: 'Rhythm instruments, dancing, and singing games to enhance coordination, auditory processing, and joy.',
-    iconSvg: 'music'
-  },
-  {
-    id: 'outdoor-play',
-    title: 'Outdoor Nature Exploration',
-    desc: 'Supervised playground play, vegetable garden tending, and outdoor games to promote gross motor health.',
-    iconSvg: 'sun'
-  },
-  {
-    id: 'early-math',
-    title: 'Early Math & STEM Puzzles',
-    desc: 'Pattern matching, shape sorting, block building, and simple counting games that foster logical thinking.',
-    iconSvg: 'puzzle'
-  },
-  {
-    id: 'sensory-play',
-    title: 'Sensory Discovery',
-    desc: 'Water tables, sand exploration, and tactile materials that encourage scientific curiosity and sensory integration.',
-    iconSvg: 'sparkles'
+    id: 'pre-k-readiness', title: 'The Canopy', category: 'Older preschool & pre-K', ageGroup: '4–5 years', ratio: 'Planned small groups',
+    image: editorialImage('prek-reading.webp'), imageAlt: 'Illustrative pre-K children sharing books and natural counting materials',
+    description: 'A thoughtful bridge to school, with deeper projects, growing independence, and plenty of time to wonder.',
+    environmentFocus: 'Inviting literacy corners, loose-parts mathematics, nature inquiry, and self-directed project tables.',
+    dailyFocusAreas: ['Emergent reading, mark-making, and storytelling', 'Mathematical thinking through real materials', 'Collaboration, self-regulation, and confidence'],
+    highlights: ['Project-based investigations', 'Everyday early literacy and maths', 'Gentle preparation for school routines']
   }
 ];
 
 export const ageSchedules = {
-  'infants': [
-    { time: '7:00 AM - 8:30 AM', icon: '🌅', title: 'Gentle Arrival & Individual Feedings', desc: 'Flexible parent handoff, cozy infant greeting, individualized morning feeding or nap.' },
-    { time: '8:30 AM - 9:30 AM', icon: '✨', title: 'Sensory & Tummy Time Exploration', desc: 'Soft texture play, soothing musical rhymes, guided tummy-time and mirror exploration.' },
-    { time: '9:30 AM - 10:30 AM', icon: '🌿', title: 'Morning Nap / Stroller Fresh Air', desc: 'Quiet crib resting or peaceful outdoor buggy stroll through our secure garden.' },
-    { time: '10:30 AM - 11:30 AM', icon: '🍼', title: 'Mid-Morning Feeding & Motor Play', desc: 'Organic puree or bottle feeding, sensory water pads, gentle rattle reach play.' },
-    { time: '11:30 AM - 1:30 PM', icon: '💤', title: 'Afternoon Rest & Soft Music', desc: 'Dimly lit rest room with white noise and gentle caregiver soothing.' },
-    { time: '1:30 PM - 3:00 PM', icon: '🎨', title: 'Tactile Play & Finger Painting', desc: 'Non-toxic edible finger paints, soft block building, and language vocalization games.' },
-    { time: '3:00 PM - 6:00 PM', icon: '🏡', title: 'Afternoon Feeding & Family Reunion', desc: 'Afternoon bottle/snack, quiet cuddles, daily app log finalization, and parent pickup.' }
+  infants: [
+    { time: 'Morning', icon: '01', title: 'Arrive & settle', desc: 'A familiar handoff, feeding or rest, and time to reconnect.' },
+    { time: 'Mid-morning', icon: '02', title: 'Sensory floor play', desc: 'Textures, songs, mirrors, movement, and one-to-one conversation.' },
+    { time: 'Midday', icon: '03', title: 'Food & rest', desc: 'Individual rhythms guide meals, bottles, sleep, and quiet care.' },
+    { time: 'Afternoon', icon: '04', title: 'Fresh air & reunion', desc: 'Garden time, gentle play, and an unhurried family handoff.' }
   ],
-  'toddlers': [
-    { time: '7:00 AM - 8:30 AM', icon: '🌅', title: 'Arrival & Free Choice Play', desc: 'Gentle check-in, puzzle tables, and comfortable transition into the classroom.' },
-    { time: '8:30 AM - 9:00 AM', icon: '🍎', title: 'Organic Snack & Circle Time', desc: 'Morning songs, weather chart, simple stories, and group hello songs.' },
-    { time: '9:00 AM - 10:15 AM', icon: '🎨', title: 'Creative Discovery Centers', desc: 'Rotations between art studio, sensory sand tables, and block building.' },
-    { time: '10:15 AM - 11:30 AM', icon: '🌳', title: 'Outdoor Nature Playground', desc: 'Sandbox exploration, tricycle riding, running, and garden exploration.' },
-    { time: '11:30 AM - 12:30 PM', icon: '🍲', title: 'Chef-Prepared Lunch & Story', desc: 'Nutritious family-style lunch, table manners, and calming storybook.' },
-    { time: '12:30 PM - 2:30 PM', icon: '💤', title: 'Rejuvenating Nap & Rest Time', desc: 'Cozy cots with personalized sleep items in a quiet, darkened room.' },
-    { time: '2:30 PM - 3:30 PM', icon: '🎵', title: 'Afternoon Fruit Snack & Music', desc: 'Fresh fruit snack followed by movement songs and rhythm instruments.' },
-    { time: '3:30 PM - 6:00 PM', icon: '🏡', title: 'Outdoor Recess & Parent Pickup', desc: 'Afternoon playground playtime, story time, and daily recap with parents.' }
+  toddlers: [
+    { time: 'Morning', icon: '01', title: 'Welcome & choose', desc: 'Children ease in through books, puzzles, building, or a quiet cuddle.' },
+    { time: 'Mid-morning', icon: '02', title: 'Make & explore', desc: 'Art, stories, music, and small-group invitations shaped by curiosity.' },
+    { time: 'Midday', icon: '03', title: 'Gather & rest', desc: 'A shared meal, a familiar story, then sleep or quiet time.' },
+    { time: 'Afternoon', icon: '04', title: 'Garden & go home', desc: 'Outdoor play followed by a personal recap at pickup.' }
   ],
-  'preschool': [
-    { time: '7:00 AM - 8:30 AM', icon: '🌅', title: 'Arrival & Morning Journal/Puzzles', desc: 'Independent activity stations, drawing, puzzle solving, and sign-in.' },
-    { time: '8:30 AM - 9:15 AM', icon: '📖', title: 'Morning Meeting & Phonics Circle', desc: 'Calendar, phonetic sounds, letter of the week, and interactive story.' },
-    { time: '9:15 AM - 10:30 AM', icon: '🔬', title: 'STEM & Guided Literacy Stations', desc: 'Math manipulatives, emergent writing practice, and science observations.' },
-    { time: '10:30 AM - 11:45 AM', icon: '⚽', title: 'Outdoor Gross-Motor Exploration', desc: 'Team field games, climbing structures, nature specimen collection.' },
-    { time: '11:45 AM - 12:45 PM', icon: '🍲', title: 'Healthy Lunch & Social Dining', desc: 'Balanced warm lunch, table cleanup skills, and conversational sharing.' },
-    { time: '12:45 PM - 2:15 PM', icon: '💤', title: 'Quiet Rest & Independent Reading', desc: 'Rest time with audiobooks or quiet chapter book nooks.' },
-    { time: '2:15 PM - 3:30 PM', icon: '🎭', title: 'Creative Arts & Music Lab', desc: 'Watercolor painting, dramatic theater play, rhythm and ensemble music.' },
-    { time: '3:30 PM - 6:00 PM', icon: '🏡', title: 'Enrichment Clubs & Family Handoff', desc: 'Outdoor garden clubs, free play centers, parent conversation and pickup.' }
+  preschool: [
+    { time: 'Morning', icon: '01', title: 'Meet & plan', desc: 'A warm arrival followed by a short gathering to shape the day.' },
+    { time: 'Mid-morning', icon: '02', title: 'Long project time', desc: 'Children investigate, build, draw, write, and work together.' },
+    { time: 'Midday', icon: '03', title: 'Lunch & reset', desc: 'Conversation over lunch, then rest, reading, or quiet making.' },
+    { time: 'Afternoon', icon: '04', title: 'Move & reflect', desc: 'Outdoor movement, project revisiting, and family handoff.' }
   ]
 };
 
-export const dailySchedule = ageSchedules['toddlers'];
+export const dailySchedule = ageSchedules.toddlers;

@@ -1,303 +1,99 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { siteConfig } from '../data/placeholderData';
-import { programsData } from '../data/programs';
-import SectionTitle from '../components/SectionTitle';
-import ProgramCard from '../components/ProgramCard';
-import ImagePlaceholder from '../components/ImagePlaceholder';
 import AgeCalculator from '../components/AgeCalculator';
-import ScheduleTimeline from '../components/ScheduleTimeline';
 import PhotoGalleryModal from '../components/PhotoGalleryModal';
+import ProgramCard from '../components/ProgramCard';
+import Reveal from '../components/Reveal';
+import ScheduleTimeline from '../components/ScheduleTimeline';
+import { programsData } from '../data/programs';
+import { editorialImage } from '../utils/assetPath';
+
+const spaces = [
+  { src: editorialImage('preschool-art.webp'), title: 'The making table', alt: 'Illustrative children making art with natural materials', desc: 'A place where paint spills, ideas overlap, and process matters more than polish.' },
+  { src: editorialImage('outdoor-garden.webp'), title: 'The garden', alt: 'Illustrative children exploring a natural play garden', desc: 'Weather, water, mud, herbs, balancing, and long stretches of fresh air.' },
+  { src: editorialImage('prek-reading.webp'), title: 'The quiet corner', alt: 'Illustrative children reading together in a calm classroom corner', desc: 'Soft places for stories, conversation, wondering, and a little space alone.' },
+];
 
 export default function HomePage() {
-  const [activeGalleryImage, setActiveGalleryImage] = useState(null);
+  const [activeImage, setActiveImage] = useState(null);
 
-  const trustPillars = [
-    {
-      iconSvg: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-          <polyline points="9 22 9 12 15 12 15 22"></polyline>
-        </svg>
-      ),
-      title: 'Nurturing & Sunlit Classrooms',
-      desc: 'Clean, secure, and thoughtfully designed spaces tailored for gentle exploration, sensory discovery, and comfort.'
-    },
-    {
-      iconSvg: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path>
-        </svg>
-      ),
-      title: 'Play-Based Discovery',
-      desc: 'Fostering creativity, motor coordination, and curiosity through hands-on art, music, building, and nature play.'
-    },
-    {
-      iconSvg: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-        </svg>
-      ),
-      title: 'Individualized Attention',
-      desc: 'Low 1:4 infant caregiver ratio ensuring each child receives warm, attentive care tailored to their unique pace.'
-    },
-    {
-      iconSvg: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-        </svg>
-      ),
-      title: 'Daily Parent Partnership',
-      desc: 'Daily digital updates, feeding/nap check-ins, and photos so you feel connected to every milestone.'
-    }
-  ];
+  const moveStack = (event) => {
+    const box = event.currentTarget.getBoundingClientRect();
+    event.currentTarget.style.setProperty('--stack-x', `${((event.clientX - box.left) / box.width - 0.5) * 10}px`);
+    event.currentTarget.style.setProperty('--stack-y', `${((event.clientY - box.top) / box.height - 0.5) * 8}px`);
+  };
 
-  const galleryItems = [
-    {
-      src: '/images/preschool_art_play.jpg',
-      title: 'Creative Arts & Craft Studio',
-      desc: 'Bright studio area with natural light for tactile texture exploration, clay modeling, and watercolor art.',
-      aspect: '4/3',
-      tag: 'Creative Play'
-    },
-    {
-      src: '/images/prek_reading_nook.jpg',
-      title: 'Literacy & Storytime Reading Nook',
-      desc: 'Cozy padded cushions and low open bookshelves filled with rich picture storybooks and phonics games.',
-      aspect: '4/3',
-      tag: 'Literacy Corner'
-    },
-    {
-      src: '/images/infant_toddler_room.jpg',
-      title: 'Infant & Toddler Sensory Suite',
-      desc: 'Ultra-hygienic soft crawl zone with tactile activity mirrors, wooden puzzles, and dedicated quiet rest cribs.',
-      aspect: '4/3',
-      tag: 'Sensory Nursery'
-    }
-  ];
-
-  const parentReviews = [
-    {
-      name: 'Jessica M.',
-      child: 'Parent of Liam (2 yrs)',
-      text: 'Little Sunshine has been an absolute blessing for our family. The staff treats Liam like family, and he comes home every day excited to tell us about sensory art and sandbox games.',
-      stars: 5,
-      avatar: 'JM'
-    },
-    {
-      name: 'David & Hannah K.',
-      child: 'Parents of Maya (4 yrs)',
-      text: 'The Pre-K curriculum prepared Maya so well for kindergarten routines! Her self-confidence in emergent reading, sharing, and problem-solving has blossomed tremendously.',
-      stars: 5,
-      avatar: 'DK'
-    },
-    {
-      name: 'Rachel S.',
-      child: 'Parent of Noah (10 mos)',
-      text: 'As a first-time parent transitioning back to work, I was anxious. The real-time daily updates, feeding logs, and warm infant room caregivers gave me total peace of mind.',
-      stars: 5,
-      avatar: 'RS'
-    }
-  ];
+  const resetStack = (event) => {
+    event.currentTarget.style.setProperty('--stack-x', '0px');
+    event.currentTarget.style.setProperty('--stack-y', '0px');
+  };
 
   return (
-    <div className="home-page">
-      {/* 1. Hero Section */}
-      <section className="hero-section" aria-label="Welcome banner">
-        <div className="container hero-container">
-          <div className="hero-content">
-            <span className="hero-badge">
-              <span className="hero-badge-dot" aria-hidden="true"></span>
-              Thoughtful Early Childhood Care
-            </span>
-            <h1 className="hero-title">
-              A calm, nurturing early learning home for your child
-            </h1>
-            <p className="hero-subtitle">
-              A gentle, play-centered neighborhood daycare where infants, toddlers, and preschool learners explore with curiosity, care, and confidence.
-            </p>
-            <div className="hero-actions">
-              <Link to="/contact" className="btn btn-primary btn-lg">
-                Schedule a Morning Tour &rarr;
-              </Link>
-              <Link to="/programs" className="btn btn-outline btn-lg">
-                View Our Programs
-              </Link>
-            </div>
-
-            <div className="hero-trust-row">
-              <div className="hero-trust-item">
-                <span className="hero-trust-check" aria-hidden="true">✓</span>
-                <span>Attentive Small-Group Care</span>
-              </div>
-              <div className="hero-trust-item">
-                <span className="hero-trust-check" aria-hidden="true">✓</span>
-                <span>Play-Based Learning</span>
-              </div>
-              <div className="hero-trust-item">
-                <span className="hero-trust-check" aria-hidden="true">✓</span>
-                <span>Thoughtful Daily Routines</span>
-              </div>
-            </div>
+    <div className="editorial-page luxury-home">
+      <section className="gallery-hero">
+        <div className="container gallery-hero-shell">
+          <div className="gallery-hero-heading">
+            <p className="kicker hero-kicker">The Little Grove · A future early-learning house</p>
+            <h1><span>Childhood,</span><em>beautifully unhurried.</em></h1>
           </div>
 
-          <div className="hero-visual">
-            <div className="hero-image-frame">
-              <img
-                src="/images/hero_daycare_play.jpg"
-                alt="Children playing with natural wooden blocks in a sunlit classroom"
-                className="hero-main-img"
-              />
-            </div>
+          <div className="gallery-stack" onPointerMove={moveStack} onPointerLeave={resetStack}>
+            <figure className="stack-frame stack-main">
+              <img src={editorialImage('hero-classroom.webp')} alt="Illustrative children absorbed in open-ended classroom play" width="1800" height="1200" />
+              <figcaption>Morning light, loose parts, no rush.</figcaption>
+            </figure>
+            <figure className="stack-frame stack-small stack-infant" aria-hidden="true">
+              <img src={editorialImage('infant-care.webp')} alt="" width="1400" height="1050" />
+            </figure>
+            <figure className="stack-frame stack-small stack-art" aria-hidden="true">
+              <img src={editorialImage('preschool-art.webp')} alt="" width="1400" height="1050" />
+            </figure>
+            <svg className="hero-leaf-line" viewBox="0 0 180 250" aria-hidden="true">
+              <path d="M31 231C46 151 90 71 156 18M75 150C55 135 40 113 38 87M77 148c29 0 52-10 68-30M107 98c-8-19-8-38-1-57" />
+            </svg>
+            <p className="stack-caption">Illustrative concept imagery</p>
+          </div>
+
+          <div className="gallery-hero-foot">
+            <p>A small, play-led place imagined for children to feel deeply known, make a glorious mess, and grow in their own time.</p>
+            <div><Link to="/contact" className="button-solid">Join the interest list</Link><Link to="/programs" className="text-link">Meet the rooms <span aria-hidden="true">→</span></Link></div>
           </div>
         </div>
+        <span className="hero-index" aria-hidden="true">01 / 05</span>
       </section>
 
-      {/* 2. Why Choose Us */}
-      <section className="section-padding bg-surface">
-        <div className="container">
-          <SectionTitle
-            badge="Why Families Choose Us"
-            title="A Nurturing Early Childhood Foundation"
-            subtitle="We create a warm, predictable daily flow focused on curiosity, friendship, health, and joyful exploration."
-          />
-          <div className="grid grid-4 trust-grid">
-            {trustPillars.map((pillar, index) => (
-              <div key={index} className="trust-card">
-                <div className="trust-icon-bubble" aria-hidden="true">{pillar.iconSvg}</div>
-                <h3 className="trust-card-title">{pillar.title}</h3>
-                <p className="trust-card-desc">{pillar.desc}</p>
-              </div>
-            ))}
-          </div>
+      <Reveal as="section" className="belief-rail luxury-beliefs" aria-label="What guides us">
+        <div className="container belief-grid">
+          <p className="belief-intro">Less like an institution. More like a thoughtful little community.</p>
+          <div><span>Listen closely</span><p>Care begins by noticing the child in front of us.</p></div>
+          <div><span>Leave room</span><p>Long play is where ideas, courage, and friendships grow.</p></div>
+          <div><span>Stay connected</span><p>Families deserve honest conversation every day.</p></div>
         </div>
-      </section>
+      </Reveal>
 
-      {/* 3. Interactive Age Calculator Widget */}
-      <section className="section-padding bg-surface-muted">
-        <div className="container">
-          <AgeCalculator />
+      <Reveal as="section" className="section-editorial finder-section luxury-finder">
+        <div className="container"><AgeCalculator /></div>
+        <div className="container program-cards-compact">{programsData.map((program, index) => <ProgramCard key={program.id} program={program} index={index} />)}</div>
+      </Reveal>
+
+      <Reveal as="section" className="section-editorial rhythm-section luxury-rhythm"><div className="container"><ScheduleTimeline /></div></Reveal>
+
+      <Reveal as="section" className="cinematic-spaces">
+        <div className="spaces-intro container"><p className="kicker light">Rooms that invite, not instruct</p><h2>Texture, quiet corners,<br />and a garden that gets muddy.</h2></div>
+        <div className="cinema-track">
+          {spaces.map((space, index) => (
+            <button type="button" className={`cinema-frame cinema-${index + 1}`} key={space.title} onClick={() => setActiveImage(space)} aria-label={`Open image: ${space.title}`}>
+              <img src={space.src} alt={space.alt} width={index === 1 ? '1800' : '1400'} height={index === 1 ? '1200' : '1050'} />
+              <span><small>0{index + 1}</small>{space.title}</span>
+            </button>
+          ))}
         </div>
-      </section>
+        <div className="container cinema-foot"><p>Illustrative concept images, not a completed facility.</p><Link className="text-link light-link" to="/about">Read our point of view <span aria-hidden="true">→</span></Link></div>
+      </Reveal>
 
-      {/* 4. Programs Preview */}
-      <section className="section-padding bg-surface">
-        <div className="container">
-          <SectionTitle
-            badge="Our Educational Programs"
-            badgeVariant="terracotta"
-            title="Tailored Care & Learning for Every Stage"
-            subtitle="From gentle infant care to structured pre-K readiness, our curriculum adapts to your child's milestones."
-          />
-          <div className="grid grid-3 programs-grid">
-            {programsData.slice(0, 3).map((program) => (
-              <ProgramCard key={program.id} program={program} />
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link to="/programs" className="btn btn-secondary btn-lg">
-              View Complete Programs & Curriculum &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
+      <Reveal as="section" className="closing-invitation luxury-invitation"><div className="container invitation-grid"><p className="kicker light">Opening plans in progress</p><h2>Grow this little grove with us.</h2><div><p>Tell us what your family is looking for. Your questions will help shape the next chapter.</p><Link to="/contact" className="button-light">Share your interest</Link></div></div></Reveal>
 
-      {/* 5. Interactive Schedule & Daily Routine */}
-      <section className="section-padding bg-surface-muted">
-        <div className="container">
-          <ScheduleTimeline />
-        </div>
-      </section>
-
-      {/* 6. Environment Preview & Interactive Photo Lightbox */}
-      <section className="section-padding bg-surface">
-        <div className="container">
-          <SectionTitle
-            badge="Campus Environment"
-            badgeVariant="sage"
-            title="Designed for Joy, Safety & Creative Play"
-            subtitle="Click any learning space to explore our bright classrooms, quiet reading nooks, and sensory areas."
-          />
-          <div className="grid grid-3 environment-grid">
-            {galleryItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="gallery-card-clickable"
-                onClick={() => setActiveGalleryImage(item)}
-                role="button"
-                tabIndex={0}
-                aria-label={`Open preview for ${item.title}`}
-              >
-                <ImagePlaceholder
-                  src={item.src}
-                  alt={item.title}
-                  title={item.title}
-                  aspect={item.aspect}
-                  tag={item.tag}
-                />
-                <div className="gallery-card-overlay">
-                  <span>Explore Room Features 🔍</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Parent Reviews */}
-      <section className="section-padding bg-surface-muted">
-        <div className="container">
-          <SectionTitle
-            badge="Parent Testimonials"
-            badgeVariant="amber"
-            title="Loved by Parents & Children Alike"
-            subtitle={`Hear what local families have to say about their experience at ${siteConfig.name}.`}
-          />
-          <div className="grid grid-3 reviews-grid">
-            {parentReviews.map((rev, idx) => (
-              <div key={idx} className="review-card">
-                <div className="review-stars">{'★'.repeat(rev.stars)}</div>
-                <p className="review-quote">"{rev.text}"</p>
-                <div className="review-author-row">
-                  <div className="review-avatar">{rev.avatar}</div>
-                  <div>
-                    <h4 className="review-author-name">{rev.name}</h4>
-                    <span className="review-child-tag">{rev.child}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 8. Final CTA */}
-      <section className="section-padding cta-section">
-        <div className="container">
-          <div className="cta-box">
-            <span className="cta-badge">Schedule A Visit</span>
-            <h2 className="cta-title">Ready to Experience {siteConfig.name}?</h2>
-            <p className="cta-desc">
-              We invite you to tour our campus, meet our passionate certified educators, and see our sunlit classrooms in person.
-            </p>
-            <div className="cta-buttons">
-              <Link to="/contact" className="btn btn-primary btn-lg">
-                Book a Tour Today
-              </Link>
-              <a href={`tel:${siteConfig.phone.replace(/[^0-9]/g, '')}`} className="btn btn-outline-white btn-lg">
-                Call Main Desk: {siteConfig.phone}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Photo Lightbox Modal */}
-      <PhotoGalleryModal
-        activeImage={activeGalleryImage}
-        onClose={() => setActiveGalleryImage(null)}
-      />
+      <PhotoGalleryModal activeImage={activeImage} onClose={() => setActiveImage(null)} />
     </div>
   );
 }

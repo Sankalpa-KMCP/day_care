@@ -1,25 +1,16 @@
-/**
- * Team and Leadership Data for Little Sunshine Daycare
- */
+import { editorialImage } from '../utils/assetPath';
+
 export const teamData = [
   {
-    id: 'director-elena',
-    name: 'Elena Rostova, M.Ed.',
-    role: 'Center Director & Lead Specialist',
-    bio: 'With over 12 years of experience in early childhood education, Elena oversees our nurturing curriculum, daily care standards, and family partnerships.',
-    focusAreas: ['Early Literacy & Language', 'Child-Centered Curriculum', 'Family Communication'],
-    initials: 'ER',
-    image: '/images/team_director_elena.jpg',
-    credential: 'M.Ed. Early Childhood Development'
+    id: 'sample-guide-elena', name: 'Elena', role: 'Sample founding guide profile', credential: 'Illustrative role · credentials not final',
+    bio: 'A calm listener who notices the small things: a new word, a brave goodbye, a friendship beginning.',
+    focusAreas: ['Attachment-led care', 'Stories & language', 'Family partnership'],
+    image: editorialImage('sample-educator-elena.webp'), imageAlt: 'Illustrative portrait of a future early-years guide in a classroom'
   },
   {
-    id: 'educator-marcus',
-    name: 'Marcus Vance, B.A.',
-    role: 'Lead Preschool Educator',
-    bio: 'Marcus specializes in hands-on early learning, sensory discovery, and helping young children build confidence, curiosity, and collaborative friendships.',
-    focusAreas: ['Hands-On Discovery', 'Creative Arts & Music', 'Social-Emotional Growth'],
-    initials: 'MV',
-    image: '/images/team_educator_marcus.jpg',
-    credential: 'B.A. Child Development'
+    id: 'sample-guide-marcus', name: 'Marcus', role: 'Sample studio guide profile', credential: 'Illustrative role · credentials not final',
+    bio: 'A maker and thoughtful play partner who helps children turn loose parts, questions, and stories into shared projects.',
+    focusAreas: ['Open-ended making', 'Outdoor inquiry', 'Social learning'],
+    image: editorialImage('sample-educator-marcus.webp'), imageAlt: 'Illustrative portrait of a future studio guide arranging classroom materials'
   }
 ];
