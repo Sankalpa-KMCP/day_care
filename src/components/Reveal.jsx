@@ -1,19 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function Reveal({ as: Tag = 'div', className = '', delay = 0, children, ...props }) {
+export default function Reveal({ as: Tag = 'div', className = '', delay = 0, children, style, ...props }) {
   const nodeRef = useRef(null);
-  const [visible, setVisible] = useState(false);
+  const [observing, setObserving] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const node = nodeRef.current;
     if (!node) return undefined;
 
-    document.documentElement.classList.add('has-reveal');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reducedMotion || !('IntersectionObserver' in window)) {
-      setVisible(true);
-      return undefined;
-    }
+    const motionQuery = typeof window.matchMedia === 'function'
+      ? window.matchMedia('(prefers-reduced-motion: reduce)')
+      : null;
+    const canEnhance = 'IntersectionObserver' in window && !motionQuery?.matches;
+    const startsBelowFold = node.getBoundingClientRect().top >= window.innerHeight;
+
+    if (!canEnhance || !startsBelowFold) return undefined;
+
+    setObserving(true);
+    setVisible(false);
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -22,15 +27,27 @@ export default function Reveal({ as: Tag = 'div', className = '', delay = 0, chi
       }
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
 
+    const handleMotionPreference = (event) => {
+      if (!event.matches) return;
+      observer.disconnect();
+      setObserving(false);
+      setVisible(true);
+    };
+
     observer.observe(node);
-    return () => observer.disconnect();
+    motionQuery?.addEventListener?.('change', handleMotionPreference);
+
+    return () => {
+      observer.disconnect();
+      motionQuery?.removeEventListener?.('change', handleMotionPreference);
+    };
   }, []);
 
   return (
     <Tag
       ref={nodeRef}
-      className={`reveal-on-scroll ${visible ? 'is-visible' : ''} ${className}`.trim()}
-      style={{ '--reveal-delay': `${delay}ms` }}
+      className={`reveal-on-scroll ${observing ? 'is-observing' : ''} ${visible ? 'is-visible' : ''} ${className}`.trim()}
+      style={{ ...style, '--reveal-delay': `${delay}ms` }}
       {...props}
     >
       {children}
