@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
@@ -9,11 +9,13 @@ import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
+  const location = useLocation();
+
   return (
     <>
       <ScrollToTop />
       <Layout>
-        <Routes>
+        <Routes location={location} key={location.pathname}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/programs" element={<ProgramsPage />} />
@@ -24,4 +26,3 @@ export default function App() {
     </>
   );
 }
-
