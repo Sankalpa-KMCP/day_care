@@ -309,75 +309,425 @@
 
 .guides-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(1.25rem, 4vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(1.5rem, 3.5vw, 2.5rem);
 }
 
 .guide-card {
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 2rem 0.65rem 2.5rem 0.9rem;
+  border-radius: var(--radius-md);
   background: var(--parchment-soft);
+  box-shadow: 0 4px 20px rgba(19, 39, 31, 0.05);
+  display: flex;
+  flex-direction: column;
 }
 
-.guide-card:nth-child(2) {
-  margin-top: 3rem;
+.guide-photo-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.5;
+  overflow: hidden;
+  background: var(--parchment-deep);
 }
 
-.guide-photo {
-  height: 31rem;
-  border: 0;
-  border-radius: 0 0 45% 10% / 0 0 16% 6%;
-  box-shadow: none;
+.guide-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  transition: transform 350ms var(--ease-story);
 }
 
-.guide-photo .photo-note {
+.guide-card:hover .guide-photo-img {
+  transform: scale(1.03);
+}
+
+.guide-photo-badges {
   position: absolute;
-  right: auto;
-  bottom: 1rem;
-  left: 1rem;
-  padding: 0.5rem 0.7rem;
+  bottom: 0.85rem;
+  left: 0.85rem;
+  right: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.guide-photo-badges .photo-note {
+  padding: 0.35rem 0.65rem;
   color: var(--cream);
-  background: rgba(15, 40, 33, 0.74);
+  background: rgba(15, 40, 33, 0.8);
   border-radius: var(--radius-sm);
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.room-badge {
+  padding: 0.35rem 0.65rem;
+  color: var(--pine-deep);
+  background: rgba(255, 250, 241, 0.92);
+  border-radius: var(--radius-sm);
+  font-size: 0.68rem;
+  font-weight: 700;
 }
 
 .guide-copy {
-  padding: clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
 }
 
 .guide-copy h3 {
-  margin-block: 0.55rem 0.75rem;
-  font-size: var(--step-3);
+  margin: 0;
+  font-size: var(--step-2);
+  color: var(--pine-deep);
 }
 
-.guide-copy > p:not(.eyebrow) {
+.guide-credential {
+  color: var(--clay-deep);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.guide-bio-text {
+  color: var(--ink);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.guide-philosophy-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--pine-soft);
+  padding-left: 0.85rem;
+  border-left: 3px solid var(--honey);
+  margin: 0.25rem 0;
+}
+
+.guide-focus-wrap {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--line);
+}
+
+.focus-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
   color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
 }
 
 .guide-focus-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-block: 1.2rem;
+  gap: 0.4rem;
   list-style: none;
 }
 
 .guide-focus-list li {
-  padding: 0.45rem 0.7rem;
+  padding: 0.3rem 0.6rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
+  background: var(--cream);
   color: var(--pine);
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 600;
 }
 
-.guide-credential {
+/* Principles Grid */
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.principle-card {
+  background: var(--parchment-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.principle-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.principle-num {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--clay-deep);
+}
+
+.principle-icon {
+  font-size: 1.5rem;
+}
+
+.principle-card h3 {
+  font-size: var(--step-1);
+  color: var(--pine-deep);
+}
+
+.principle-card p {
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* Safety Standards */
+.standards-storybook-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.standards-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.standard-note {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.standard-note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.standard-chip {
   font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pine-deep);
+  background: var(--sage-soft);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+/* ==========================================================================
+   MENU SHOWCASE (Farm to Table)
+   ========================================================================== */
+.menu-showcase {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 4rem);
+  box-shadow: var(--shadow-paper);
+}
+
+.menu-showcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.menu-header-copy {
+  max-width: 44rem;
+}
+
+.menu-header-copy h2 {
+  font-size: var(--step-3);
+  margin-bottom: 0.75rem;
+}
+
+.menu-deck {
+  color: var(--ink-muted);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+.season-toggle-wrap {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--parchment);
+  padding: 0.35rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+}
+
+.season-toggle-btn {
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: transparent;
+  color: var(--ink-muted);
+  transition: all 180ms var(--ease-soft);
+}
+
+.season-toggle-btn.is-active {
+  background: var(--pine-deep);
+  color: var(--cream);
+  box-shadow: 0 2px 8px rgba(15, 40, 33, 0.2);
+}
+
+.nutrition-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.pillar-card {
+  background: var(--parchment-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pillar-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.pillar-card h4 {
+  font-size: 1rem;
+  color: var(--pine-deep);
+}
+
+.pillar-card p {
+  font-size: 0.86rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.weekly-menu-board {
+  background: var(--parchment-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+.menu-board-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.25rem;
+}
+
+.menu-board-top h3 {
+  font-size: var(--step-1);
+  color: var(--pine-deep);
+}
+
+.season-flavor-note {
+  font-size: 0.86rem;
+  color: var(--clay-deep);
+  font-style: italic;
+}
+
+.week-selector-pills {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.week-pill {
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.week-pill.is-active {
+  background: var(--clay-deep);
+  color: var(--cream);
+  border-color: var(--clay-deep);
+}
+
+.daily-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.day-menu-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.day-card-header strong {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--pine-deep);
+}
+
+.meal-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.meal-type-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.meal-type-tag--main {
+  color: var(--clay-deep);
+}
+
+.meal-section p {
+  font-size: 0.82rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.menu-board-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line);
+  font-size: 0.76rem;
+  color: var(--ink-muted);
+  font-weight: 600;
 }
 
 /* Full-bleed finale */

@@ -1137,6 +1137,124 @@ figcaption,
   }
 }
 
+/* Badges & Shared Utilities */
+.eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clay-deep);
+  background: rgba(195, 94, 66, 0.1);
+  border: 1px solid rgba(195, 94, 66, 0.22);
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.85rem;
+}
+
+.eyebrow-badge--light {
+  color: var(--honey-soft);
+  background: rgba(243, 190, 98, 0.14);
+  border-color: rgba(243, 190, 98, 0.28);
+}
+
+.concept-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pine-deep);
+  background: var(--honey-soft);
+  border-radius: var(--radius-pill);
+}
+
+.button-ghost {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+  transition: all 180ms var(--ease-soft);
+}
+
+.button-ghost:hover {
+  border-color: var(--ink);
+  background: var(--parchment-soft);
+  transform: translateY(-1px);
+}
+
+.button-ghost--light {
+  border-color: var(--line-light);
+  color: var(--cream);
+}
+
+.button-ghost--light:hover {
+  border-color: var(--cream);
+  background: rgba(255, 250, 241, 0.12);
+  color: var(--cream);
+}
+
+.hero-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.hero-trust-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.trust-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.trust-metric-item strong {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--pine-deep);
+  line-height: 1.1;
+}
+
+.trust-metric-item span {
+  font-size: 0.76rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.invitation-action-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.invitation-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .program-story,
   .guide-card,
@@ -1174,3 +1292,4 @@ figcaption,
     transform: none;
   }
 }
+

@@ -901,8 +901,755 @@
     margin: 0;
   }
 
+/* ==========================================================================
+   CAMPUS EXPLORER (Interactive Space Tour)
+   ========================================================================== */
+.campus-explorer {
+  background: var(--parchment-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 4rem);
+  box-shadow: var(--shadow-paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.campus-explorer-header {
+  margin-bottom: 2.5rem;
+}
+
+.explorer-title-wrap {
+  max-width: 48rem;
+  margin-bottom: 1.75rem;
+}
+
+.explorer-title-wrap h2 {
+  font-size: var(--step-3);
+  margin-bottom: 0.75rem;
+}
+
+.explorer-subtitle {
+  color: var(--ink-muted);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+.explorer-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.explorer-tab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  padding: 1rem 1.25rem;
+  background: var(--parchment);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  transition: all 200ms var(--ease-soft);
+}
+
+.explorer-tab-btn:hover {
+  background: var(--cream);
+  border-color: var(--pine-soft);
+  transform: translateY(-2px);
+}
+
+.explorer-tab-btn.is-active {
+  background: var(--pine-deep);
+  color: var(--cream);
+  border-color: var(--pine-deep);
+  box-shadow: 0 0.5rem 1.5rem rgba(15, 40, 33, 0.18);
+}
+
+.explorer-tab-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clay-deep);
+}
+
+.explorer-tab-btn.is-active .explorer-tab-tag {
+  color: var(--honey-soft);
+}
+
+.explorer-tab-btn strong {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  line-height: 1.2;
+}
+
+.explorer-display-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.explorer-visual-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.explorer-image-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-paper);
+  background: var(--parchment-deep);
+  aspect-ratio: 4 / 3;
+}
+
+.explorer-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms var(--ease-story);
+}
+
+.explorer-image-card:hover .explorer-main-img {
+  transform: scale(1.03);
+}
+
+.explorer-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 40, 33, 0.75) 0%, transparent 60%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1.25rem;
+}
+
+.explorer-zoom-btn {
+  background: rgba(255, 250, 241, 0.92);
+  color: var(--pine-deep);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 180ms var(--ease-soft);
+}
+
+.explorer-zoom-btn:hover {
+  transform: scale(1.05);
+  background: var(--cream);
+}
+
+.explorer-category-badge {
+  color: var(--cream);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.explorer-pedagogy-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--pine-soft);
+  padding-left: 1rem;
+  border-left: 3px solid var(--clay);
+  margin: 0;
+}
+
+.explorer-stations-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.explorer-stations-header h3 {
+  font-size: var(--step-1);
+  margin-bottom: 0.35rem;
+}
+
+.explorer-stations-header p {
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.explorer-station-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.explorer-station-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 180ms var(--ease-soft);
+}
+
+.explorer-station-item:hover,
+.explorer-station-item.is-highlighted {
+  border-color: var(--clay);
+  background: var(--parchment-soft);
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(195, 94, 66, 0.08);
+}
+
+.station-number {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--clay-deep);
+  line-height: 1;
+}
+
+.station-content h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.station-content p {
+  font-size: 0.84rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
+}
+
+.explorer-actions-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--line);
+}
+
+.materials-note {
+  font-size: 0.76rem;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   TUITION ESTIMATOR
+   ========================================================================== */
+.tuition-estimator {
+  background: var(--parchment-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 4rem);
+  box-shadow: var(--shadow-paper);
+}
+
+.tuition-title-group {
+  max-width: 48rem;
+  margin-bottom: 2.5rem;
+}
+
+.tuition-title-group h2 {
+  font-size: var(--step-3);
+  margin-bottom: 0.75rem;
+}
+
+.tuition-deck {
+  color: var(--ink-muted);
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+.tuition-calculator-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.tuition-controls-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.tuition-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.tuition-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+  color: var(--pine-deep);
+}
+
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--clay-deep);
+  color: var(--cream);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.tuition-toggle-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.65rem;
+}
+
+.tuition-toggle-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  padding: 0.85rem 1rem;
+  background: var(--parchment);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  text-align: left;
+  transition: all 180ms var(--ease-soft);
+}
+
+.tuition-toggle-btn:hover {
+  background: var(--cream);
+  border-color: var(--pine);
+  transform: translateY(-1px);
+}
+
+.tuition-toggle-btn.is-active {
+  background: var(--pine-deep);
+  color: var(--cream);
+  border-color: var(--pine-deep);
+  box-shadow: 0 4px 14px rgba(15, 40, 33, 0.16);
+}
+
+.tuition-toggle-btn strong {
+  font-size: 0.88rem;
+  line-height: 1.2;
+}
+
+.tuition-toggle-btn small {
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+}
+
+.tuition-toggle-btn.is-active small {
+  color: var(--honey-soft);
+}
+
+.tuition-summary-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  box-shadow: var(--shadow-paper);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tuition-summary-header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.25rem;
+}
+
+.tuition-summary-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clay-deep);
+  margin-bottom: 0.5rem;
+}
+
+.tuition-price-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.tuition-price-display .currency {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--pine-deep);
+  font-weight: 600;
+}
+
+.tuition-price-display .amount {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--pine-deep);
+  letter-spacing: -0.04em;
+}
+
+.tuition-price-display .period {
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin-left: 0.25rem;
+}
+
+.tuition-price-subtext {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.tuition-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.metric-pill {
+  background: var(--parchment-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.metric-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+}
+
+.metric-value {
+  font-size: 0.86rem;
+  color: var(--pine-deep);
+}
+
+.tuition-inclusions-list h4 {
+  font-size: 0.88rem;
+  margin-bottom: 0.65rem;
+}
+
+.tuition-inclusions-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.tuition-inclusions-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.82rem;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.check-icon {
+  color: var(--clay-deep);
+  font-weight: bold;
+}
+
+.tuition-apply-btn {
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.tuition-disclaimer {
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   ENHANCED SCHEDULE TIMELINE
+   ========================================================================== */
+.enhanced-rhythm {
+  background: var(--parchment-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 4rem);
+  box-shadow: var(--shadow-paper);
+}
+
+.rhythm-interactive-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.rhythm-timeline-column .rhythm-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rhythm-slot-card {
+  display: flex;
+  gap: 1rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.25rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 180ms var(--ease-soft);
+}
+
+.rhythm-slot-card:hover,
+.rhythm-slot-card.is-selected {
+  border-color: var(--clay);
+  background: var(--parchment-soft);
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(195, 94, 66, 0.08);
+}
+
+.slot-badge-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slot-num-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--parchment-deep);
+  color: var(--pine-deep);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.rhythm-slot-card.is-selected .slot-num-badge {
+  background: var(--clay-deep);
+  color: var(--cream);
+}
+
+.slot-connector-line {
+  flex: 1;
+  width: 2px;
+  background: var(--line);
+}
+
+.slot-body {
+  flex: 1;
+}
+
+.slot-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.slot-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--pine-deep);
+}
+
+.slot-time-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--clay-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.slot-summary {
+  font-size: 0.84rem;
+  color: var(--ink-muted);
+  line-height: 1.45;
+}
+
+.rhythm-spotlight-card {
+  background: var(--pine-deep);
+  color: var(--cream);
+  border-radius: var(--radius-md);
+  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+  box-shadow: var(--shadow-lift);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.spotlight-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--honey);
+}
+
+.spotlight-header h3 {
+  color: var(--cream);
+  font-size: var(--step-2);
+  margin-top: 0.25rem;
+}
+
+.spotlight-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 250, 241, 0.88);
+}
+
+.spotlight-pedagogy-box {
+  background: rgba(255, 250, 241, 0.07);
+  border-left: 3px solid var(--honey);
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.spotlight-pedagogy-box h4 {
+  color: var(--honey);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.4rem;
+}
+
+.spotlight-pedagogy-box p {
+  font-size: 0.86rem;
+  color: var(--cream);
+  line-height: 1.5;
+}
+
+.spotlight-footer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 250, 241, 0.15);
+}
+
+.meta-point {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: rgba(255, 250, 241, 0.8);
+}
+
+/* ==========================================================================
+   FAMILY VOICES (Community Testimonials)
+   ========================================================================== */
+.family-voices-section {
+  background: var(--cream);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.voices-header {
+  max-width: 48rem;
+  margin-bottom: 2.5rem;
+}
+
+.voices-header h2 {
+  font-size: var(--step-3);
+  margin-bottom: 0.5rem;
+}
+
+.voices-header p {
+  color: var(--ink-muted);
+  font-size: var(--step-0);
+}
+
+.voices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.voice-card {
+  background: var(--parchment-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  box-shadow: 0 4px 20px rgba(19, 39, 31, 0.04);
+}
+
+.voice-quote {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--pine-deep);
+}
+
+.voice-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.voice-author {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--pine-deep);
+}
+
+.voice-child {
+  font-size: 0.78rem;
+  color: var(--clay-deep);
+  font-weight: 600;
+}
+
+.voice-tag {
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 980px) {
+  .explorer-display-grid,
+  .tuition-calculator-grid,
+  .rhythm-interactive-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
   .cinema-foot {
     align-items: flex-start;
     flex-direction: column;
   }
 }
+
