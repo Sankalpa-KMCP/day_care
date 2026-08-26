@@ -46,7 +46,7 @@ export default function Footer() {
               </li>
               <li>
                 <IconPhone size={15} />
-                <a href={business.phone.tel}>{business.phone.display}</a>
+                <a href={business.phone.tel}>{business.phone.friendly}</a>
               </li>
               <li>
                 <IconClock size={15} />

@@ -34,7 +34,7 @@ function ProgramBlock({ program, flip = false }) {
                 <dt>{spec.label}</dt>
                 <span className="leader-dots" aria-hidden="true" />
                 <dd>
-                  {spec.value ?? <em className="spec-tbd">to be confirmed — please ask us</em>}
+                  {spec.value ?? <em className="spec-tbd">ask us for details</em>}
                 </dd>
               </div>
             ))}
@@ -86,7 +86,7 @@ export default function Programs() {
             </div>
             <div className="btn-row">
               <ButtonLink href={business.phone.tel} variant="terra">
-                {business.phone.display}
+                {business.phone.friendly}
               </ButtonLink>
               <ButtonLink to="/contact" variant="ghost" arrow>
                 Send an Inquiry

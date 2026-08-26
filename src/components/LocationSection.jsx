@@ -20,7 +20,7 @@ const rows = [
     label: 'Call',
     content: (
       <a className="loc-phone" href={business.phone.tel}>
-        {business.phone.display}
+        {business.phone.friendly}
       </a>
     ),
   },

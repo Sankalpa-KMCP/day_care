@@ -196,6 +196,7 @@ a {
   letter-spacing: -0.015em;
   font-weight: 600;
   color: var(--pine);
+  text-wrap: balance;
 }
 
 .section-title em,
@@ -376,16 +377,16 @@ a {
   left: 14px;
   bottom: 14px;
   z-index: 2;
-  padding: 5px 12px;
+  padding: 4px 10px;
   border-radius: var(--radius-pill);
-  background: rgba(255, 252, 246, 0.88);
-  backdrop-filter: blur(4px);
+  background: rgba(255, 252, 246, 0.8);
   border: 1px solid var(--line);
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-soft);
+  opacity: 0.75;
 }
 
 .stamp {
@@ -558,26 +559,13 @@ a {
 .mobile-nav {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 90;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 30px;
-  padding: calc(var(--header-h) + 20px) clamp(24px, 7vw, 48px) 40px;
+  gap: 36px;
+  padding: calc(var(--header-h) + 30px) clamp(24px, 7vw, 48px) 44px;
   background: var(--cream);
-}
-
-.site-header:not(.is-open) .mobile-nav {
-  display: none;
-}
-
-.mobile-close {
-  position: absolute;
-  top: calc(var(--header-h) / 2 - 14px);
-  right: clamp(24px, 7vw, 48px);
-  font-weight: 700;
-  font-size: 15px;
-  color: var(--terra-ink);
+  overflow-y: auto;
 }
 
 .mobile-links {
@@ -618,6 +606,9 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: auto;
+  padding-top: 28px;
+  border-top: 1.5px dashed var(--line-strong);
 }
 
 .mobile-meta {
@@ -630,7 +621,7 @@ a {
 .hero {
   position: relative;
   padding-top: calc(var(--header-h) + clamp(44px, 7vw, 96px));
-  padding-bottom: clamp(60px, 8vw, 104px);
+  padding-bottom: clamp(52px, 6.5vw, 88px);
   overflow-x: clip;
 }
 
@@ -662,10 +653,12 @@ a {
 .hero-title {
   font-family: var(--font-display);
   font-size: clamp(2.7rem, 4.6vw + 0.8rem, 4.55rem);
-  line-height: 1.03;
+  line-height: 1.04;
   letter-spacing: -0.02em;
   font-weight: 600;
   color: var(--pine);
+  text-wrap: balance;
+  max-width: 12ch;
 }
 
 .hero-title em {
@@ -675,8 +668,8 @@ a {
 
 .hero-squiggle {
   position: absolute;
-  left: 4%;
-  bottom: -14px;
+  left: 2%;
+  bottom: -12px;
   color: var(--gold);
 }
 
@@ -819,6 +812,10 @@ a {
 }
 
 /* ---- Welcome ---- */
+.welcome-section {
+  padding-bottom: clamp(52px, 6.5vw, 84px);
+}
+
 .welcome-grid {
   display: grid;
   grid-template-columns: 0.92fr 1.08fr;
@@ -853,7 +850,7 @@ a {
 }
 
 .filmstrip-wrap {
-  margin-top: clamp(56px, 6vw, 84px);
+  margin-top: clamp(44px, 5vw, 64px);
 }
 
 .filmstrip {
@@ -1499,8 +1496,8 @@ a {
 .cta-banner {
   position: relative;
   padding-block: clamp(84px, 10vw, 136px);
-  background: radial-gradient(circle at 12% 110%, rgba(227, 188, 95, 0.14), transparent 40%),
-    var(--pine);
+  background: radial-gradient(circle at 12% 110%, rgba(227, 188, 95, 0.16), transparent 42%),
+    var(--forest-deep);
   color: var(--cream);
   overflow: hidden;
 }
@@ -1517,15 +1514,6 @@ a {
   top: -130px;
   right: -90px;
   border: 1.5px dashed rgba(227, 188, 95, 0.4);
-}
-
-.cta-decor--dot {
-  width: 16px;
-  height: 16px;
-  bottom: 74px;
-  left: 12vw;
-  background: var(--terra);
-  opacity: 0.8;
 }
 
 .cta-inner {
@@ -1568,6 +1556,7 @@ a {
   font-weight: 600;
   color: var(--pine);
   max-width: 21ch;
+  text-wrap: balance;
 }
 
 .page-hero-lead {
@@ -1750,6 +1739,12 @@ a {
   background: linear-gradient(160deg, var(--terra-soft), var(--sand));
 }
 
+.team-tile .photo {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
 .team-card h3 {
   margin-top: 20px;
   font-family: var(--font-display);
@@ -1831,6 +1826,7 @@ a {
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--pine);
+  text-wrap: balance;
 }
 
 .program-blurb {
@@ -1918,7 +1914,7 @@ a {
 }
 
 .info-label {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 8px;
   font-size: 11px;
@@ -2135,6 +2131,18 @@ a.info-big:hover {
 
 .contact-map-section {
   padding-top: 0;
+}
+
+/* ---- Not found ---- */
+.notfound-section {
+  padding-top: 0;
+  text-align: center;
+}
+
+.notfound-help {
+  margin-top: 26px;
+  font-size: 15px;
+  color: var(--ink-soft);
 }
 
 .contact-map {

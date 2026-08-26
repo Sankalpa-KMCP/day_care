@@ -5,10 +5,11 @@ export default function ScrollToTop() {
   const { pathname, hash } = useLocation()
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (hash) {
       const el = document.querySelector(hash)
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' })
         return
       }
     }

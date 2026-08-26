@@ -56,7 +56,7 @@ export default function ProgramsPreview() {
             it through.
           </p>
           <a href={business.phone.tel} className="text-link">
-            {business.phone.display} →
+            {business.phone.friendly} →
           </a>
         </Reveal>
       </div>

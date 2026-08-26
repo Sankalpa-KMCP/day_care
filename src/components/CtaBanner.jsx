@@ -6,7 +6,6 @@ export default function CtaBanner() {
   return (
     <section className="cta-banner">
       <div className="cta-decor cta-decor--ring" aria-hidden="true" />
-      <div className="cta-decor cta-decor--dot" aria-hidden="true" />
       <Reveal className="container cta-inner">
         <p className="kicker kicker--gold">Come say hello</p>
         <h2>Come see Parkdale for yourself.</h2>

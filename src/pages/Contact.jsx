@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js'
 import { business, meta } from '../data/site.js'
 import PageHero from '../components/PageHero.jsx'
@@ -72,6 +72,11 @@ export default function Contact() {
   const [values, setValues] = useState(initialValues)
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
+  const successRef = useRef(null)
+
+  useEffect(() => {
+    if (submitted) successRef.current?.focus()
+  }, [submitted])
 
   const setField = (name) => (e) => {
     const next = { ...values, [name]: e.target.value }
@@ -83,7 +88,12 @@ export default function Contact() {
     e.preventDefault()
     const nextErrors = validate(values)
     setErrors(nextErrors)
-    if (Object.keys(nextErrors).length === 0) setSubmitted(true)
+    const firstError = Object.keys(nextErrors)[0]
+    if (firstError) {
+      document.getElementById(firstError)?.focus()
+    } else {
+      setSubmitted(true)
+    }
   }
 
   return (
@@ -103,7 +113,7 @@ export default function Contact() {
           <div className="info-cell">
             <p className="info-label">Call</p>
             <a href={business.phone.tel} className="info-big">
-              {business.phone.display}
+              {business.phone.friendly}
             </a>
             <p className="info-sub">We’re happy to answer questions over the phone.</p>
           </div>
@@ -158,11 +168,13 @@ export default function Contact() {
                 <span className="success-icon" aria-hidden="true">
                   ✓
                 </span>
-                <h2>Thanks, {values.name.split(' ')[0]}!</h2>
+                <h2 ref={successRef} tabIndex={-1}>
+                  Thanks, {values.name.split(' ')[0]}!
+                </h2>
                 <p>
                   Your inquiry about <strong>{values.care}</strong> has been noted. This demo form
                   isn’t connected to email yet — in the meantime, reach us directly at{' '}
-                  <a href={business.phone.tel}>{business.phone.display}</a>.
+                  <a href={business.phone.tel}>{business.phone.friendly}</a>.
                 </p>
                 <button
                   type="button"
