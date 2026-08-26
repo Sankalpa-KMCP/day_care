@@ -1,10 +1,12 @@
 import { business } from '../data/site.js'
 import ButtonLink from './ui/ButtonLink.jsx'
 import Reveal from './Reveal.jsx'
+import { StarField } from './decor.jsx'
 
 export default function CtaBanner() {
   return (
     <section className="cta-banner">
+      <StarField />
       <div className="cta-decor cta-decor--ring" aria-hidden="true" />
       <Reveal className="container cta-inner">
         <p className="kicker kicker--gold">Come say hello</p>

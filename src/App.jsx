@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop.jsx'
 import Header from './components/layout/Header.jsx'
 import Footer from './components/layout/Footer.jsx'
+import BackToTop from './components/BackToTop.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Programs from './pages/Programs.jsx'
@@ -26,6 +27,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <BackToTop />
     </>
   )
 }

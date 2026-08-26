@@ -1,7 +1,10 @@
 import { photos, whyPoints } from '../../data/site.js'
+import { IconSprout, IconSun, IconHeart } from '../decor.jsx'
 import SectionHead from '../ui/SectionHead.jsx'
 import Reveal from '../Reveal.jsx'
 import Photo from '../Photo.jsx'
+
+const whyIcons = [IconSprout, IconSun, IconHeart]
 
 export default function WhyParkdale() {
   return (
@@ -26,15 +29,20 @@ export default function WhyParkdale() {
           </Reveal>
 
           <div className="why-list">
-            {whyPoints.map((point, i) => (
-              <Reveal as="article" key={point.title} delay={i * 80} className="why-row">
-                <span className="why-num">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <h3>{point.title}</h3>
-                  <p>{point.text}</p>
-                </div>
-              </Reveal>
-            ))}
+            {whyPoints.map((point, i) => {
+              const Icon = whyIcons[i % whyIcons.length]
+              return (
+                <Reveal as="article" key={point.title} delay={i * 80} className="why-row">
+                  <span className="why-icon">
+                    <Icon size={24} />
+                  </span>
+                  <div>
+                    <h3>{point.title}</h3>
+                    <p>{point.text}</p>
+                  </div>
+                </Reveal>
+              )
+            })}
           </div>
         </div>
       </div>

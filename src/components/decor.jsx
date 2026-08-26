@@ -71,6 +71,43 @@ export function Stamp({ className = '' }) {
   )
 }
 
+export function StarField() {
+  return (
+    <span className="starfield" aria-hidden="true">
+      {Array.from({ length: 7 }, (_, i) => (
+        <i key={i} />
+      ))}
+    </span>
+  )
+}
+
+export function ArrowDoodle({ className = '' }) {
+  return (
+    <svg
+      className={className}
+      width="52"
+      height="42"
+      viewBox="0 0 52 42"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M47 4C39 22 26 32 8 31"
+        stroke="currentColor"
+        strokeWidth="2.3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M15 24l-8 7 10 3"
+        stroke="currentColor"
+        strokeWidth="2.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 const base = {
   fill: 'none',
   stroke: 'currentColor',
@@ -144,6 +181,15 @@ export function IconSun({ size = 20 }) {
     <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
       <circle cx="12" cy="12" r="4.5" />
       <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" />
+    </svg>
+  )
+}
+
+export function IconArrowUp({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+      <line x1="12" y1="19" x2="12" y2="5" />
+      <polyline points="5 12 12 5 19 12" />
     </svg>
   )
 }

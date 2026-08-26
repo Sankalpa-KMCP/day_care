@@ -6,6 +6,7 @@ import Welcome from '../components/home/Welcome.jsx'
 import WhyParkdale from '../components/home/WhyParkdale.jsx'
 import AfterSchoolFeature from '../components/home/AfterSchoolFeature.jsx'
 import ProgramsPreview from '../components/home/ProgramsPreview.jsx'
+import MarqueeBand from '../components/MarqueeBand.jsx'
 import PhilosophyBand from '../components/home/PhilosophyBand.jsx'
 import ReviewsSection from '../components/home/ReviewsSection.jsx'
 import LocationSection from '../components/LocationSection.jsx'
@@ -25,6 +26,7 @@ export default function Home() {
       <WhyParkdale />
       <AfterSchoolFeature />
       <ProgramsPreview />
+      <MarqueeBand />
 
       <section className="section gallery-section">
         <div className="container">

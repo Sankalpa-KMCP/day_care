@@ -1,5 +1,5 @@
 import { business, heroFacts, photos } from '../../data/site.js'
-import { Sparkle, Squiggle, Stamp, IconPin, IconClock } from '../decor.jsx'
+import { Sparkle, Squiggle, Stamp, ArrowDoodle, IconPin, IconClock } from '../decor.jsx'
 import ButtonLink from '../ui/ButtonLink.jsx'
 import Reveal from '../Reveal.jsx'
 import Photo from '../Photo.jsx'
@@ -33,13 +33,19 @@ export default function Hero() {
             </p>
           </Reveal>
           <Reveal delay={200}>
-            <div className="btn-row">
-              <ButtonLink to="/contact" arrow>
-                Book a Visit
-              </ButtonLink>
-              <ButtonLink href={business.phone.tel} variant="ghost">
-                Call Us
-              </ButtonLink>
+            <div className="hero-cta-zone">
+              <div className="btn-row">
+                <ButtonLink to="/contact" arrow>
+                  Book a Visit
+                </ButtonLink>
+                <ButtonLink href={business.phone.tel} variant="ghost">
+                  Call Us
+                </ButtonLink>
+              </div>
+              <p className="hero-note hand" aria-hidden="true">
+                we’d love to meet you!
+                <ArrowDoodle />
+              </p>
             </div>
             <ul className="hero-facts">
               {heroFacts.map((fact) => {

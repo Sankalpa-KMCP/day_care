@@ -1,11 +1,12 @@
 import { afterSchool } from '../../data/site.js'
-import { IconStar } from '../decor.jsx'
+import { IconStar, StarField } from '../decor.jsx'
 import ButtonLink from '../ui/ButtonLink.jsx'
 import Reveal from '../Reveal.jsx'
 
 export default function AfterSchoolFeature() {
   return (
     <section className="afterschool">
+      <StarField />
       <div className="container afterschool-grid">
         <Reveal className="afterschool-copy">
           <p className="kicker kicker--gold">{afterSchool.kicker}</p>
