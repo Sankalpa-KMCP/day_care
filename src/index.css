@@ -2595,7 +2595,7 @@ a.info-big:hover {
 
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 64px;
+    gap: 48px;
   }
 
   .hero-photo-wrap {
@@ -2758,9 +2758,9 @@ a.info-big:hover {
   }
 
   .gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 14px;
   }
 
   .g-a,
@@ -2777,7 +2777,35 @@ a.info-big:hover {
   }
 
   .gallery-item .photo {
-    aspect-ratio: 4 / 3.4 !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  .gallery-cap {
+    margin-top: 8px;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+  }
+
+  .why-row {
+    grid-template-columns: 58px 1fr;
+    padding-block: 22px;
+  }
+
+  .why-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .map-embed {
+    min-height: 300px;
+  }
+
+  .contact-map {
+    min-height: 280px;
+  }
+
+  .filmstrip-wrap {
+    margin-top: clamp(30px, 8vw, 44px);
   }
 
   .preview-top {
@@ -2819,6 +2847,20 @@ a.info-big:hover {
 }
 
 @media (max-width: 480px) {
+  .section {
+    padding-block: clamp(42px, 11vw, 52px);
+  }
+
+  .section-head {
+    margin-bottom: clamp(26px, 7vw, 34px);
+  }
+
+  .afterschool,
+  .philosophy-band,
+  .cta-banner {
+    padding-block: clamp(46px, 12vw, 58px);
+  }
+
   .hero {
     padding-top: calc(var(--header-h) + 34px);
     padding-bottom: 44px;
@@ -2829,20 +2871,28 @@ a.info-big:hover {
   }
 
   .hero-grid {
-    gap: 52px;
-  }
-
-  .infoband-grid {
-    grid-template-columns: 1fr;
+    gap: 48px;
   }
 
   .infoband-cell {
-    border-left: none !important;
-    padding-inline: 0;
+    padding: 15px 12px;
   }
 
-  .infoband-cell + .infoband-cell {
-    border-top: 1px solid var(--line);
+  .infoband-cell:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .infoband-label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+
+  .infoband-value {
+    font-size: 14px;
+  }
+
+  .infoband-sub {
+    font-size: 12px;
   }
 
   .hero-polaroid {
@@ -2878,7 +2928,8 @@ a.info-big:hover {
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
+    padding-block: 46px 34px;
   }
 }
 
