@@ -1,8 +1,10 @@
-import { business } from '../../data/site.js'
+import { business, heroFacts, photos } from '../../data/site.js'
 import { Sparkle, Squiggle, Stamp, IconPin, IconClock } from '../decor.jsx'
 import ButtonLink from '../ui/ButtonLink.jsx'
 import Reveal from '../Reveal.jsx'
 import Photo from '../Photo.jsx'
+
+const factIcons = { pin: IconPin, clock: IconClock }
 
 export default function Hero() {
   return (
@@ -18,9 +20,7 @@ export default function Hero() {
             <h1 className="hero-title">
               A caring place to{' '}
               <em>
-                learn,
-                <br />
-                play
+                learn, play
                 <Squiggle className="hero-squiggle" width={170} />
               </em>{' '}
               &amp; grow.
@@ -42,14 +42,15 @@ export default function Hero() {
               </ButtonLink>
             </div>
             <ul className="hero-facts">
-              <li>
-                <IconPin size={16} />
-                <span>8608 112 Ave NW, Edmonton</span>
-              </li>
-              <li>
-                <IconClock size={16} />
-                <span>Mon – Fri · 7 AM – 6 PM</span>
-              </li>
+              {heroFacts.map((fact) => {
+                const Icon = factIcons[fact.icon]
+                return (
+                  <li key={fact.icon}>
+                    <Icon size={16} />
+                    <span>{fact.text}</span>
+                  </li>
+                )
+              })}
             </ul>
           </Reveal>
         </div>
@@ -58,12 +59,13 @@ export default function Hero() {
           <Reveal delay={150} className="hero-photo-wrap">
             <span className="hero-arch" aria-hidden="true" />
             <Photo
-              image={{ src: null, alt: 'Children playing together at Parkdale Daycare', variant: 0 }}
+              image={photos.hero}
               ratio="4 / 4.6"
               eager
+              showTag={false}
             />
             <figure className="hero-polaroid">
-              <Photo image={{ src: null, alt: 'Craft time at Parkdale Daycare', variant: 3 }} ratio="1 / 1" showTag={false} />
+              <Photo image={photos.heroPolaroid} ratio="1 / 1" showTag={false} />
               <figcaption className="hand">life at parkdale</figcaption>
             </figure>
             <Stamp className="hero-stamp" />

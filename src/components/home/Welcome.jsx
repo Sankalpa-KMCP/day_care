@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
+import { photos } from '../../data/site.js'
 import { Squiggle } from '../decor.jsx'
 import Reveal from '../Reveal.jsx'
 import Photo from '../Photo.jsx'
+
+const filmstripRatios = ['4 / 3.2', '4 / 3.6', '4 / 3']
 
 export default function Welcome() {
   return (
@@ -21,8 +24,8 @@ export default function Welcome() {
         <Reveal delay={120} className="welcome-body">
           <p>
             Parkdale Daycare is a childcare home in the heart of Edmonton’s Parkdale neighbourhood.
-            We keep our days simple and full of good things — play, stories, fresh air, creative
-            mess and plenty of gentle attention.
+            We keep our days simple and full of good things — play, stories, quiet corners,
+            creative mess and plenty of gentle attention.
           </p>
           <p>
             Walk in and you’ll find calm rooms, familiar faces and children busy doing what they do
@@ -35,15 +38,15 @@ export default function Welcome() {
 
       <div className="container filmstrip-wrap">
         <div className="filmstrip">
-          <Reveal className="filmstrip-item filmstrip-item--a">
-            <Photo image={{ src: null, alt: 'Play area with wooden toys', variant: 1 }} ratio="4 / 3.2" showTag={false} />
-          </Reveal>
-          <Reveal delay={120} className="filmstrip-item filmstrip-item--b">
-            <Photo image={{ src: null, alt: 'Reading nook with cushions', variant: 2 }} ratio="4 / 3.6" showTag={false} />
-          </Reveal>
-          <Reveal delay={240} className="filmstrip-item filmstrip-item--c">
-            <Photo image={{ src: null, alt: 'Art supplies on a craft table', variant: 3 }} ratio="4 / 3" showTag={false} />
-          </Reveal>
+          {photos.filmstrip.map((image, i) => (
+            <Reveal
+              key={image.alt}
+              delay={i * 120}
+              className={`filmstrip-item filmstrip-item--${'abc'[i]}`}
+            >
+              <Photo image={image} ratio={filmstripRatios[i]} showTag={false} />
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

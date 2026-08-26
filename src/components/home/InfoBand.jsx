@@ -5,7 +5,7 @@ const cells = [
   {
     icon: <IconPin size={17} />,
     label: 'Location',
-    value: '8608 112 Ave NW, Edmonton',
+    value: business.address.short,
   },
   {
     icon: <IconClock size={17} />,
@@ -21,7 +21,7 @@ const cells = [
   {
     icon: <IconPhone size={17} />,
     label: 'Call us',
-    value: business.phone.display,
+    value: business.phone.friendly,
     href: business.phone.tel,
   },
 ]

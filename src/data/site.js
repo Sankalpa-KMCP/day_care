@@ -15,6 +15,7 @@ export const business = {
     city: 'Edmonton',
     province: 'AB',
     postalCode: 'T5B 0G4',
+    short: '8608 112 Ave NW, Edmonton',
     oneLine: '8608 112 Ave NW, Edmonton, AB T5B 0G4',
   },
   hours: {
@@ -23,7 +24,6 @@ export const business = {
     short: 'Mon – Fri · 7 AM – 6 PM',
     note: 'Closed weekends',
   },
-  mapsUrl: 'https://maps.app.goo.gl/U1GurZLxzy9hWPMc7',
   directionsUrl:
     'https://www.google.com/maps/dir/?api=1&destination=8608%20112%20Ave%20NW%2C%20Edmonton%2C%20AB%20T5B%200G4',
   mapEmbedUrl:
@@ -60,12 +60,29 @@ export const meta = {
     description:
       'Call, visit or send an inquiry to Parkdale Daycare. 8608 112 Ave NW, Edmonton — open Monday–Friday, 7 AM–6 PM.',
   },
+  notFound: {
+    title: 'Page Not Found | Parkdale Daycare',
+    description:
+      'The page you’re looking for isn’t here. Head back to the Parkdale Daycare home page for programs, hours and contact details.',
+  },
 }
 
 export const heroFacts = [
-  { icon: 'pin', text: business.address.oneLine },
+  { icon: 'pin', text: business.address.short },
   { icon: 'clock', text: business.hours.short },
 ]
+
+export const photos = {
+  hero: { src: null, alt: 'Children playing together at Parkdale Daycare', variant: 0 },
+  heroPolaroid: { src: null, alt: 'Craft time at Parkdale Daycare', variant: 3 },
+  why: { src: null, alt: 'Caregiver reading with children at Parkdale Daycare', variant: 2 },
+  aboutIntro: { src: null, alt: 'Inside Parkdale Daycare', variant: 1 },
+  filmstrip: [
+    { src: null, alt: 'Play area at Parkdale Daycare', variant: 1 },
+    { src: null, alt: 'Quiet reading time at Parkdale Daycare', variant: 2 },
+    { src: null, alt: 'Arts and crafts at Parkdale Daycare', variant: 3 },
+  ],
+}
 
 export const whyPoints = [
   {
@@ -78,7 +95,7 @@ export const whyPoints = [
   },
   {
     title: 'Time to play',
-    text: 'Play is serious work around here — room to move, imagine, build friendships and burn off energy, indoors and out.',
+    text: 'Play is serious work around here — room to move, imagine, build friendships and burn off energy.',
   },
   {
     title: 'Family connection',
@@ -102,8 +119,8 @@ export const afterSchool = {
     rows: [
       { label: 'Days', value: 'Monday – Friday' },
       { label: 'Open until', value: '6:00 PM' },
-      { label: 'Ages', value: null },
-      { label: 'Availability', value: null },
+      { label: 'Ages', value: 'Ask us about eligible ages' },
+      { label: 'Availability', value: 'Ask about current spots' },
     ],
     footnote: 'Questions about pickup or transportation? Just ask us.',
   },
@@ -114,7 +131,7 @@ export const programsPreview = {
     name: 'Child Care',
     blurb:
       'A full day of play, rest and discovery for our youngest crew — in bright, comfortable spaces made with little people in mind.',
-    image: { src: null, alt: 'Bright playroom at Parkdale Daycare' },
+    image: { src: null, alt: 'Bright play space at Parkdale Daycare' },
   },
   afterSchool: {
     name: 'After School Care',
@@ -131,12 +148,12 @@ export const philosophy = {
 }
 
 export const galleryItems = [
-  { id: 'g1', span: 'a', variant: 0, caption: 'The playroom', alt: 'Bright playroom at Parkdale Daycare' },
-  { id: 'g2', span: 'b', variant: 1, caption: 'Building corner', alt: 'Building toys and blocks at Parkdale Daycare' },
-  { id: 'g3', span: 'c', variant: 3, caption: 'Little artists', alt: 'Arts and crafts area at Parkdale Daycare' },
-  { id: 'g4', span: 'd', variant: 2, caption: 'Story time', alt: 'Cozy reading corner at Parkdale Daycare' },
-  { id: 'g5', span: 'e', variant: 0, caption: 'Outdoor play space', alt: 'Outdoor play area at Parkdale Daycare' },
-  { id: 'g6', span: 'f', variant: 4, caption: 'Our home on 112 Ave', alt: 'Parkdale Daycare building exterior on 112 Avenue, Edmonton' },
+  { id: 'g1', span: 'a', variant: 0, caption: 'The playroom', alt: 'Bright play space at Parkdale Daycare' },
+  { id: 'g2', span: 'b', variant: 1, caption: 'Building & blocks', alt: 'Toys and blocks at Parkdale Daycare' },
+  { id: 'g3', span: 'c', variant: 3, caption: 'Little artists', alt: 'Arts and crafts at Parkdale Daycare' },
+  { id: 'g4', span: 'd', variant: 2, caption: 'Story time', alt: 'Story time at Parkdale Daycare' },
+  { id: 'g5', span: 'e', variant: 0, caption: 'Playtime', alt: 'Children playing at Parkdale Daycare' },
+  { id: 'g6', span: 'f', variant: 4, caption: 'Our home on 112 Ave', alt: 'Parkdale Daycare building on 112 Avenue, Edmonton' },
 ]
 
 export const aboutSpaceItems = galleryItems.slice(0, 4)
@@ -170,18 +187,21 @@ export const teamMembers = [
     name: 'Team member name',
     role: 'Role title',
     bio: 'A short introduction will appear here once staff profiles are finalized.',
+    image: { src: null, alt: 'Parkdale Daycare team member' },
   },
   {
     id: 't2',
     name: 'Team member name',
     role: 'Role title',
     bio: 'A short introduction will appear here once staff profiles are finalized.',
+    image: { src: null, alt: 'Parkdale Daycare team member' },
   },
   {
     id: 't3',
     name: 'Team member name',
     role: 'Role title',
     bio: 'A short introduction will appear here once staff profiles are finalized.',
+    image: { src: null, alt: 'Parkdale Daycare team member' },
   },
 ]
 
@@ -192,12 +212,12 @@ export const programs = [
     kicker: 'Full days · Little ones',
     blurb:
       'Our full-day child care program gives younger children a safe, cheerful place to spend their days — balanced between active play, quiet time, creative activities and rest.',
-    highlights: ['Bright play spaces', 'Rest & quiet time', 'Creative activities', 'Outdoor play'],
+    highlights: ['Bright play spaces', 'Rest & quiet time', 'Creative activities', 'Active play'],
     specs: [
-      { label: 'Accepted ages', value: null },
+      { label: 'Accepted ages', value: 'Ask us about eligible ages' },
       { label: 'Schedule', value: 'Monday – Friday · 7:00 AM – 6:00 PM' },
-      { label: 'Current availability', value: null },
-      { label: 'Registration & fees', value: null },
+      { label: 'Current availability', value: 'Ask about current availability' },
+      { label: 'Registration & fees', value: 'Shared during registration — just ask' },
     ],
     image: { src: null, alt: 'Children playing inside Parkdale Daycare' },
     featured: false,
@@ -212,10 +232,10 @@ export const programs = [
     specs: [
       { label: 'Schedule', value: 'School days · Monday – Friday' },
       { label: 'Open until', value: '6:00 PM' },
-      { label: 'Accepted ages', value: null },
-      { label: 'Transportation & pickup', value: null },
-      { label: 'Current availability', value: null },
-      { label: 'Fees & registration', value: null },
+      { label: 'Accepted ages', value: 'Ask us about eligible ages' },
+      { label: 'Transportation & pickup', value: 'Ask us about pickup options' },
+      { label: 'Current availability', value: 'Ask about current availability' },
+      { label: 'Fees & registration', value: 'Shared during registration — just ask' },
     ],
     image: { src: null, alt: 'School-aged children playing at Parkdale Daycare' },
     featured: true,
@@ -226,3 +246,5 @@ export const testimonials = []
 
 export const placeholderQuote =
   'We’re collecting stories from our Parkdale families — real words from real parents will live here soon.'
+
+

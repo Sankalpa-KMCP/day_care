@@ -35,7 +35,7 @@ export default function Home() {
                 A peek inside <em>our days.</em>
               </>
             }
-            lead="Bright rooms, busy hands and a big backyard for running — here’s a little taste of everyday life at Parkdale."
+            lead="Bright rooms, busy hands and plenty of space to play — here’s a little taste of everyday life at Parkdale."
           />
           <GalleryGrid items={galleryItems} />
         </div>

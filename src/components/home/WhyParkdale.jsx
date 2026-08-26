@@ -1,4 +1,4 @@
-import { whyPoints } from '../../data/site.js'
+import { photos, whyPoints } from '../../data/site.js'
 import SectionHead from '../ui/SectionHead.jsx'
 import Reveal from '../Reveal.jsx'
 import Photo from '../Photo.jsx'
@@ -18,7 +18,7 @@ export default function WhyParkdale() {
         <div className="why-grid">
           <Reveal className="why-media">
             <Photo
-              image={{ src: null, alt: 'Caregiver reading with children at Parkdale Daycare', variant: 2 }}
+              image={photos.why}
               ratio="3 / 3.8"
               showTag={false}
             />

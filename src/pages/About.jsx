@@ -1,5 +1,5 @@
 import { useDocumentMeta } from '../hooks/useDocumentMeta.js'
-import { approachItems, aboutSpaceItems, teamMembers } from '../data/site.js'
+import { meta, approachItems, aboutSpaceItems, teamMembers, photos } from '../data/site.js'
 import PageHero from '../components/PageHero.jsx'
 import GalleryGrid from '../components/GalleryGrid.jsx'
 import LocationSection from '../components/LocationSection.jsx'
@@ -37,11 +37,7 @@ export default function About() {
       <section className="section day-section">
         <div className="container day-grid">
           <Reveal className="day-photo">
-            <Photo
-              image={{ src: null, alt: 'Inside Parkdale Daycare', variant: 1 }}
-              ratio="4 / 4.8"
-              eager
-            />
+            <Photo image={photos.aboutIntro} ratio="4 / 4.8" eager />
           </Reveal>
           <Reveal delay={130} className="day-body">
             <p className="kicker">Our daycare</p>
@@ -108,7 +104,7 @@ export default function About() {
                 Rooms made for <em>real childhood.</em>
               </>
             }
-            lead="Spaces to build, paint, read, climb and rest — plus room outdoors to run off the wiggles."
+            lead="Spaces to build, paint, read, climb and rest — with plenty of room to move and play."
           />
           <GalleryGrid items={aboutSpaceItems} compact />
         </div>
@@ -132,8 +128,14 @@ export default function About() {
             {teamMembers.map((member, i) => (
               <Reveal key={member.id} delay={i * 90} className="team-card">
                 <div className={`team-tile ${tileTints[i % tileTints.length]}`}>
-                  <SunMark size={54} />
-                  <span className="ph-tag">Add photo</span>
+                  {member.image?.src ? (
+                    <Photo image={member.image} />
+                  ) : (
+                    <>
+                      <SunMark size={54} />
+                      <span className="ph-tag">Add photo</span>
+                    </>
+                  )}
                 </div>
                 <h3>{member.name}</h3>
                 <p className="team-role">{member.role}</p>
